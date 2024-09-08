@@ -87,7 +87,7 @@ make
 
 The meaning for each parameter is as follows:
 
-- [height_map_data_and_index]: an index for height map data (a integer from 0 to 119)
+- [height_map_data_and_index]: an index for height map data (a integer from 0 to 34)
 - [epsilon]: the epsilon value (0 < epsilon <= 1)
 - [run_knn_and_range_query]: whether to run knn and range query (0 means not running, 1 means running)
 
@@ -131,9 +131,9 @@ For the [height_map_data_and_index], each index value corresponding to a height 
 | 33 | RM | 2000832 |
 | 34 | RM | 2502075 |
 
-Since Sur-SimQue-AdpM, Net-SimQue-AdpM, Mem-SimQue-LS, and Mem-SimQue-LST are time consuming or having large memory usage, the project will run all algorithms on small-version dataset ([height_map_data_and_index] <= 9). The project will run all algorithms except these four algorithms on original dataset with default 500 POIs ([height_map_data_and_index] > 9).
+Since Sur-SimQue-AdpM, Net-SimQue-AdpM, Mem-SimQue-LS, and Mem-SimQue-LST are time consuming or having large memory usage, the project will run all algorithms on small-version dataset ([height_map_data_and_index] <= 9). The project will run all algorithms except these four algorithms on original dataset ([height_map_data_and_index] > 9).
 
-In addition, we strongly encourage you to set [run_knn_and_range_query] to 0 if you are not conducting experiments. Otherwise, it will take a very long time to run calculate the knn of all POIs. 
+In addition, we strongly encourage you to set [run_knn_and_range_query] to 0 if you are not conducting experiments. Otherwise, it will take a very long time to calculate them. 
 
 An example:
 
