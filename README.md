@@ -149,6 +149,48 @@ For the [data_and_index], each index value corresponding to a height map, point 
 | 33 | RM | 2000832 |
 | 34 | RM | 2502075 |
 
+Data Format:
+
+For the height map dataset, we used the .png format in the experiment.
+
+For the point cloud dataset, we used the .xyz format in the experiment. The content of the .xyz file is as follows:
+
+```
+points_num
+
+1st_point_x_coord 1st_point_y_coord 1st_point_z_coord
+
+2nd_point_x_coord 2nd_point_y_coord 2nd_point_z_coord
+
+......
+
+last_point_x_coord last_point_y_coord last_point_z_coord
+```
+
+For the TIN dataset, we used the .off format in the experiment. The content of the .off file is as follows:
+
+```
+OFF
+
+vertices_num faces_num edges_num
+
+1st_vertex_x_coord 1st_vertex_y_coord 1st_vertex_z_coord
+
+2nd_vertex_x_coord 2nd_vertex_y_coord 2nd_vertex_z_coord
+
+......
+
+last_vertex_x_coord last_vertex_y_coord last_vertex_z_coord
+
+1st_face_1st_vertex_ID 1st_face_2nd_vertex_ID 1st_face_3td_vertex_ID
+
+2nd_face_1st_vertex_ID 2nd_face_2nd_vertex_ID 2nd_face_3td_vertex_ID
+
+......
+
+last_face_1st_vertex_ID last_face_2nd_vertex_ID last_face_3td_vertex_ID
+```
+
 Since Sur-SimQue-AdpM, Sur-SimQue-AdpC, Sur-SimQue, Net-SimQue-AdpM, Net-SimQue-AdpC, Net-SimQue, Mem-SimQue-LS, and Mem-SimQue-LST are time consuming or having large memory usage, the project will run all algorithms on small-version dataset ([data_and_index] <= 9). The project will run all algorithms except these mentioned algorithms on original dataset ([data_and_index] > 9).
 
 In addition, we strongly encourage you to set [run_knn_and_range_query] to 0 if you are not conducting experiments. Otherwise, it will take a very long time to calculate them. 
