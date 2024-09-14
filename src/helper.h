@@ -8,6 +8,7 @@
 #include "geodesic_algorithm_exact.h"
 #include "geodesic_algorithm_subdivision.h"
 #include "height_map.h"
+#include "point_cloud.h"
 #include <algorithm>
 
 #include <CGAL/Exact_predicates_inexact_constructions_kernel.h>

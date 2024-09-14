@@ -415,8 +415,8 @@ namespace height_map_geodesic
             assert(false);
         }
 
-        std::cout << "Image width = " << width << '\n';
-        std::cout << "Image height = " << height << '\n';
+        // std::cout << "Image width = " << width << '\n';
+        // std::cout << "Image height = " << height << '\n';
 
         points.clear();
 
@@ -698,14 +698,14 @@ namespace height_map_geodesic
             }
         }
 
-        std::cout << std::endl;
-        std::cout << "Height map has " << m_hm_points.size() << " pixels" << std::endl;
-        std::cout << "enclosing XYZ box:"
-                  << " X[" << x_min << "," << x_max << "]"
-                  << " Y[" << y_min << "," << y_max << "]"
-                  << " Z[" << z_min << "," << z_max << "]"
-                  << std::endl;
-        std::cout << std::endl;
+        // std::cout << std::endl;
+        // std::cout << "Height map has " << m_hm_points.size() << " pixels" << std::endl;
+        // std::cout << "enclosing XYZ box:"
+        //           << " X[" << x_min << "," << x_max << "]"
+        //           << " Y[" << y_min << "," << y_max << "]"
+        //           << " Z[" << z_min << "," << z_max << "]"
+        //           << std::endl;
+        // std::cout << std::endl;
     }
 
     void HeightMap::height_map_to_terrain(double &memory_usage)
