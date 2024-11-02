@@ -503,23 +503,23 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex(
     double &height_map_or_point_cloud_range_query_error,
     double &terrain_range_query_error)
 {
-    auto start_simplification_time = std::chrono::high_resolution_clock::now();
-
     geodesic::Mesh org_mesh;
     std::vector<double> org_terrain_vertex;
     std::vector<unsigned> org_terrain_face;
     org_terrain_vertex.clear();
     org_terrain_face.clear();
 
-    std::unordered_map<unsigned, std::unordered_map<unsigned, double>> guest_map;
-    std::unordered_map<unsigned, std::unordered_map<unsigned, unsigned>> host_map;
-    guest_map.clear();
-    host_map.clear();
-
     height_map_to_terrain_and_initialize_terrain(
         org_height_map, &org_mesh,
         org_terrain_vertex, org_terrain_face,
         height_map_or_point_cloud_to_terrain_time, height_map_or_point_cloud_to_terrain_memory_usage);
+
+    auto start_simplification_time = std::chrono::high_resolution_clock::now();
+
+    std::unordered_map<unsigned, std::unordered_map<unsigned, double>> guest_map;
+    std::unordered_map<unsigned, std::unordered_map<unsigned, unsigned>> host_map;
+    guest_map.clear();
+    host_map.clear();
 
     double subdivision_level = 0;
     if (face_exact_one_face_appr_two_vertex_three == 2)
