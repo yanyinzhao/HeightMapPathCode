@@ -25,7 +25,7 @@ namespace geodesic
 				  max_number_of_blocks);
 		};
 
-		~SimlpeMemoryAllocator(){};
+		~SimlpeMemoryAllocator() {};
 
 		void reset(unsigned block_size,
 				   unsigned max_number_of_blocks)
@@ -76,7 +76,7 @@ namespace geodesic
 				  max_number_of_blocks);
 		};
 
-		~MemoryAllocator(){};
+		~MemoryAllocator() {};
 
 		void clear()
 		{
@@ -153,7 +153,7 @@ namespace geodesic
 		void clear()
 		{
 			m_num_bytes = 0;
-			m_buffer = std::auto_ptr<double>();
+			m_buffer = std::unique_ptr<double>();
 		}
 
 		template <class T>
@@ -163,7 +163,7 @@ namespace geodesic
 			if (wanted > m_num_bytes)
 			{
 				unsigned new_size = (unsigned)ceil(wanted / (double)sizeof(double));
-				m_buffer = std::auto_ptr<double>(new double[new_size]);
+				m_buffer = std::unique_ptr<double>(new double[new_size]);
 				m_num_bytes = new_size * sizeof(double);
 			}
 
@@ -183,7 +183,7 @@ namespace geodesic
 		};
 
 	private:
-		std::auto_ptr<double> m_buffer;
+		std::unique_ptr<double> m_buffer;
 		unsigned m_num_bytes;
 	};
 

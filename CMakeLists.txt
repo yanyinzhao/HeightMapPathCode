@@ -6,7 +6,7 @@ project( HeightMapPathCode )
 cmake_minimum_required(VERSION 2.8.11)
 
 # CGAL and its components
-find_package( CGAL QUIET COMPONENTS  )
+find_package( CGAL REQUIRED )
 
 if ( NOT CGAL_FOUND )
 
@@ -15,8 +15,6 @@ if ( NOT CGAL_FOUND )
 
 endif()
 
-# include helper file
-include( ${CGAL_USE_FILE} )
 
 # Boost and its components
 find_package( Boost REQUIRED )
@@ -34,5 +32,6 @@ project(main C CXX)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 add_executable(main src/main.cpp)
 target_link_libraries(main Boost::system Boost::program_options)
+target_link_libraries(main CGAL::CGAL)
 
 
