@@ -114,7 +114,7 @@ void compare_distance(double org_dist, double simp_dist,
     }
 }
 
-double epslion_to_subdivision_level(double epsilon)
+double epsilon_to_subdivision_level(double epsilon)
 {
     assert(epsilon > 0 && epsilon <= 1);
     double subdivision_level = 0;

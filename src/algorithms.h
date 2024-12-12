@@ -524,7 +524,7 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex(
     double subdivision_level = 0;
     if (face_exact_one_face_appr_two_vertex_three == 2)
     {
-        subdivision_level = epslion_to_subdivision_level(epsilon);
+        subdivision_level = epsilon_to_subdivision_level(epsilon);
     }
 
     geodesic::GeodesicAlgorithmExact algorithm_face_exact(&org_mesh);
@@ -840,7 +840,7 @@ void terrain_face_exact_and_face_appr_and_vertex(
     double subdivision_level = 0;
     if (face_exact_one_face_appr_two_vertex_three == 2)
     {
-        subdivision_level = epslion_to_subdivision_level(epsilon);
+        subdivision_level = epsilon_to_subdivision_level(epsilon);
     }
 
     geodesic::GeodesicAlgorithmExact algorithm_face_exact(&org_mesh);
@@ -928,7 +928,7 @@ void terrain_face_exact_and_face_appr_and_vertex_knn_and_range_query(
     double subdivision_level = 0;
     if (face_exact_one_face_appr_two_vertex_three == 2)
     {
-        subdivision_level = epslion_to_subdivision_level(epsilon);
+        subdivision_level = epsilon_to_subdivision_level(epsilon);
     }
 
     std::vector<std::pair<double, int>> obj_to_other_obj_distance_and_index_list;
