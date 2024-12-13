@@ -27,9 +27,9 @@ namespace geodesic
 	class Mesh
 	{
 	public:
-		Mesh(){};
+		Mesh() {};
 
-		~Mesh(){};
+		~Mesh() {};
 
 		template <class Points, class Faces>
 		void initialize_mesh_data(unsigned num_vertices,
@@ -516,10 +516,6 @@ namespace geodesic
 			{
 				x_vertex_num++;
 			}
-			else
-			{
-				break;
-			}
 		}
 		for (unsigned i = 0; i < m_vertices.size(); ++i)
 		{
@@ -527,10 +523,6 @@ namespace geodesic
 			if (v.x() == m_xmin)
 			{
 				y_vertex_num++;
-			}
-			else
-			{
-				break;
 			}
 		}
 		m_x_vertex_num = x_vertex_num;
