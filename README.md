@@ -6,37 +6,37 @@ This project provides the implementation for efficient proximity queries on simp
 
 We compared 31 algorithms as follows (the algorithms calculate the path passing on a height map as default):
 
-- Sur-SimQue-AdpM (baseline simplification algorithm)
-- Sur-SimQue-AdpC (baseline simplification algorithm that calculates the path passing on a point cloud)
-- Sur-SimQue (baseline simplification algorithm that calculates the path passing on a TIN)
-- Net-SimQue-AdpM (baseline simplification algorithm)
-- Net-SimQue-AdpC (baseline simplification algorithm that calculates the path passing on a point cloud)
-- Net-SimQue (baseline simplification algorithm that calculates the path passing on a TIN)
-- Mes-SimQue-AdpM (baseline simplification algorithm)
-- Mes-SimQue (baseline simplification algorithm that calculates the path passing on a point cloud)
-- Mes-SimQue-AdpT (baseline simplification algorithm that calculates the path passing on a TIN)
-- Mem-SimQue-LS (variation of our simplification algorithm)
-- Mem-SimQue-LST (variation of our simplification algorithm)
-- Mem-SimQue-LQT1 (variation of our simplification algorithm)
-- Mem-SimQue-LQT2 (variation of our simplification algorithm)
-- Mem-SimQue (our simplification algorithm)
-- Mem-SimQue-AdpC (our simplification algorithm that calculate the path passing on a point cloud)
-- Mem-SimQue-AdpT (our simplification algorithm that calculate the path passing on a TIN)
-- Unf-Que-AdpM (baseline shortest path query algorithm)
-- Unf-Que-AdpC (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- Unf-Que (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- Ste-Que-AdpM (baseline shortest path query algorithm)
-- Ste-Que-AdpC (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- Ste-Que (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- Dij-Que-AdpM (baseline shortest path query algorithm)
-- Dij-Que-AdpC (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- Dij-Que (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- Con-Que-AdpM (baseline shortest path query algorithm)
-- Con-Que (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- Con-Que-AdpT (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- Eff-Que (our shortest path query algorithm)
-- Eff-Que-AdpC (our shortest path query algorithm that calculate the path passing on a point cloud)
-- Eff-Que-AdpT (our shortest path query algorithm that calculate the path passing on a TIN)
+- TIN-SurSimQ-Adapt(HM) (baseline simplification algorithm)
+- TIN-SurSimQ-Adapt(PC) (baseline simplification algorithm that calculates the path passing on a point cloud)
+- TIN-SurSimQ (baseline simplification algorithm that calculates the path passing on a TIN)
+- TIN-NetSimQ-Adapt(HM) (baseline simplification algorithm)
+- TIN-NetSimQ-Adapt(PC) (baseline simplification algorithm that calculates the path passing on a point cloud)
+- TIN-NetSimQ (baseline simplification algorithm that calculates the path passing on a TIN)
+- PC-MesSimQ-Adapt(HM) (baseline simplification algorithm)
+- PC-MesSimQ (baseline simplification algorithm that calculates the path passing on a point cloud)
+- PC-MesSimQ-Adapt(TIN) (baseline simplification algorithm that calculates the path passing on a TIN)
+- HM-MesSimQ-LS (variation of our simplification algorithm)
+- HM-MesSimQ-LST (variation of our simplification algorithm)
+- HM-MesSimQ-LQT1 (variation of our simplification algorithm)
+- HM-MesSimQ-LQT2 (variation of our simplification algorithm)
+- HM-MesSimQ (our simplification algorithm)
+- HM-MesSimQ-Adapt(PC) (our simplification algorithm that calculate the path passing on a point cloud)
+- HM-MesSimQ-Adapt(TIN) (our simplification algorithm that calculate the path passing on a TIN)
+- TIN-UnfQ-Adapt(HM) (baseline shortest path query algorithm)
+- TIN-UnfQ-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- TIN-UnfQ (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- TIN-SteQ-Adapt(HM) (baseline shortest path query algorithm)
+- TIN-SteQ-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- TIN-SteQ (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- TIN-DijQ-Adapt(HM) (baseline shortest path query algorithm)
+- TIN-DijQ-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- TIN-DijQ (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- PC-ConQ-Adapt(HM) (baseline shortest path query algorithm)
+- PC-ConQ (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- PC-ConQ-Adapt(TIN) (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- HM-EffQ (our shortest path query algorithm)
+- HM-EffQ-Adapt(PC) (our shortest path query algorithm that calculate the path passing on a point cloud)
+- HM-EffQ-Adapt(TIN) (our shortest path query algorithm that calculate the path passing on a TIN)
 
 Make sure there is a folder called "input/" and a folder called "output/" under the working directory. They will be used for storing the input/output files.
 
@@ -191,7 +191,7 @@ last_vertex_x_coord last_vertex_y_coord last_vertex_z_coord
 last_face_1st_vertex_ID last_face_2nd_vertex_ID last_face_3td_vertex_ID
 ```
 
-Since Sur-SimQue-AdpM, Sur-SimQue-AdpC, Sur-SimQue, Net-SimQue-AdpM, Net-SimQue-AdpC, Net-SimQue, Mem-SimQue-LS, and Mem-SimQue-LST are time consuming or having large memory usage, the project will run all algorithms on small-version dataset ([data_and_index] <= 9). The project will run all algorithms except these mentioned algorithms on original dataset ([data_and_index] > 9).
+Since TIN-SurSimQ-Adapt(HM), TIN-SurSimQ-Adapt(PC), TIN-SurSimQ, TIN-NetSimQ-Adapt(HM), TIN-NetSimQ-Adapt(PC), TIN-NetSimQ, HM-MesSimQ-LS, and HM-MesSimQ-LST are time consuming or having large memory usage, the project will run all algorithms on small-version dataset ([data_and_index] <= 9). The project will run all algorithms except these mentioned algorithms on original dataset ([data_and_index] > 9).
 
 In addition, we strongly encourage you to set [run_knn_and_range_query] to 0 if you are not conducting experiments. Otherwise, it will take a very long time to calculate them. 
 

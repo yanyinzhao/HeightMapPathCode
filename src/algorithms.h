@@ -1074,46 +1074,46 @@ void simplified_height_map_or_point_cloud_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== Mem_SimQue ==\n";
+                ofs << "\n== HM_MesSimQ ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== Mem_SimQue_AdpC ==\n";
+                ofs << "\n== HM_MesSimQ_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== Mem_SimQue_AdpT ==\n";
+                ofs << "\n== HM_MesSimQ_Adapt(TIN) ==\n";
             }
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 2)
         {
-            ofs << "\n== Mem_SimQue_LQT1 ==\n";
+            ofs << "\n== HM_MesSimQ_LQT1 ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 3)
         {
-            ofs << "\n== Mem_SimQue_LQT2 ==\n";
+            ofs << "\n== HM_MesSimQ_LQT2 ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 4)
         {
-            ofs << "\n== Mem_SimQue_LS ==\n";
+            ofs << "\n== HM_MesSimQ_LS ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 5)
         {
-            ofs << "\n== Mem_SimQue_LST ==\n";
+            ofs << "\n== HM_MesSimQ_LST ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 6)
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== Mes_SimQue_AdpM ==\n";
+                ofs << "\n== PC_MesSimQ_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== Mes_SimQue ==\n";
+                ofs << "\n== PC_MesSimQ ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== Mes_SimQue_AdpT ==\n";
+                ofs << "\n== PC_MesSimQ_Adapt(TIN) ==\n";
             }
         }
     }
@@ -1184,7 +1184,7 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
         height_map_or_point_cloud_knn_query_error, terrain_knn_query_error,
         height_map_or_point_cloud_range_query_error, terrain_range_query_error);
 
-    if (height_map_one_point_cloud_two_terrain_three == 3)
+    if (height_map_one_point_cloud_two_terrain_three != 3)
     {
         height_map_or_point_cloud_to_terrain_time = 0;
         height_map_or_point_cloud_to_terrain_memory_usage = 0;
@@ -1215,15 +1215,15 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== Sur_SimQue_AdpM ==\n";
+                ofs << "\n== TIN_SurSimQ_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== Sur_SimQue_AdpC ==\n";
+                ofs << "\n== TIN_SurSimQ_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== Sur_SimQue ==\n";
+                ofs << "\n== TIN_SurSimQ ==\n";
             }
         }
         else if (face_exact_one_face_appr_two_vertex_three == 2)
@@ -1234,15 +1234,15 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== Net_SimQue_AdpM ==\n";
+                ofs << "\n== TIN_NetSimQ_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== Net_SimQue_AdpC ==\n";
+                ofs << "\n== TIN_NetSimQ_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== Net_SimQue ==\n";
+                ofs << "\n== TIN_NetSimQ ==\n";
             }
         }
     }
@@ -1333,30 +1333,30 @@ void height_map_or_point_cloud_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== Eff_Que ==\n";
+                ofs << "\n== HM_EffQ ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== Eff_Que_AdpC ==\n";
+                ofs << "\n== HM_EffQ_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== Eff_Que_AdpT ==\n";
+                ofs << "\n== HM_EffQ_Adapt(TIN) ==\n";
             }
         }
         else if (height_map_one_point_cloud_two == 2)
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== Con_Que_AdpM ==\n";
+                ofs << "\n== PC_ConQ_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== Con_Que ==\n";
+                ofs << "\n== PC_ConQ ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== Con_Que_AdpT ==\n";
+                ofs << "\n== PC_ConQ_Adapt(TIN) ==\n";
             }
         }
     }
@@ -1432,7 +1432,7 @@ void terrain_face_exact_and_face_appr_and_vertex_with_output(
             height_map_or_point_cloud_range_query_error, terrain_range_query_error);
     }
 
-    if (height_map_one_point_cloud_two_terrain_three == 3)
+    if (height_map_one_point_cloud_two_terrain_three != 3)
     {
         height_map_or_point_cloud_to_terrain_time = 0;
         height_map_or_point_cloud_to_terrain_memory_usage = 0;
@@ -1461,45 +1461,45 @@ void terrain_face_exact_and_face_appr_and_vertex_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== Unf_Que_AdpM ==\n";
+                ofs << "\n== TIN_UnfQ_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== Unf_Que_AdpC ==\n";
+                ofs << "\n== TIN_UnfQ_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== Unf_Que ==\n";
+                ofs << "\n== TIN_UnfQ ==\n";
             }
         }
         else if (face_exact_one_face_appr_two_vertex_three == 2)
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== Ste_Que_AdpM ==\n";
+                ofs << "\n== TIN_SteQ_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== Ste_Que_AdpC ==\n";
+                ofs << "\n== TIN_SteQ_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== Ste_Que ==\n";
+                ofs << "\n== TIN_SteQ ==\n";
             }
         }
         else if (face_exact_one_face_appr_two_vertex_three == 3)
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== Dij_Que_AdpM ==\n";
+                ofs << "\n== TIN_DijQ_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== Dij_Que_AdpC ==\n";
+                ofs << "\n== TIN_DijQ_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== Dij_Que ==\n";
+                ofs << "\n== TIN_DijQ ==\n";
             }
         }
     }

@@ -143,7 +143,7 @@ int main(int argc, char *argv[])
 
     if (input_file_index >= 0 && input_file_index <= 9)
     {
-        std::cout << "== Sur_SimQue_AdpM ==" << std::endl;
+        std::cout << "== TIN_SurSimQ_Adapt(HM) ==" << std::endl;
         simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
             output_file, &org_height_map, epsilon, source_index, destination_index,
             1, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -154,7 +154,7 @@ int main(int argc, char *argv[])
             write_file_header, 1);
         std::cout << std::endl;
 
-        std::cout << "== Net_SimQue_AdpM ==" << std::endl;
+        std::cout << "== TIN_NetSimQ_Adapt(HM) ==" << std::endl;
         simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
             output_file, &org_height_map, epsilon, source_index, destination_index,
             3, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -165,7 +165,7 @@ int main(int argc, char *argv[])
             write_file_header, 1);
         std::cout << std::endl;
 
-        std::cout << "== Mem_SimQue_LS ==" << std::endl;
+        std::cout << "== HM_MesSimQ_LS ==" << std::endl;
         simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
                                                          destination_index, 4,
                                                          height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -176,7 +176,7 @@ int main(int argc, char *argv[])
                                                          write_file_header, 1);
         std::cout << std::endl;
 
-        std::cout << "== Mem_SimQue_LST ==" << std::endl;
+        std::cout << "== HM_MesSimQ_LST ==" << std::endl;
         simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
                                                          destination_index, 5,
                                                          height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -187,7 +187,7 @@ int main(int argc, char *argv[])
                                                          write_file_header, 1);
         std::cout << std::endl;
 
-        std::cout << "== Sur_SimQue_AdpC ==" << std::endl;
+        std::cout << "== TIN_SurSimQ_Adapt(PC) ==" << std::endl;
         simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
             output_file, &org_height_map, epsilon, source_index, destination_index,
             1, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -198,7 +198,7 @@ int main(int argc, char *argv[])
             write_file_header, 2);
         std::cout << std::endl;
 
-        std::cout << "== Net_SimQue_AdpC ==" << std::endl;
+        std::cout << "== TIN_NetSimQ_Adapt(PC) ==" << std::endl;
         simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
             output_file, &org_height_map, epsilon, source_index, destination_index,
             3, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -209,7 +209,7 @@ int main(int argc, char *argv[])
             write_file_header, 2);
         std::cout << std::endl;
 
-        std::cout << "== Sur_SimQue ==" << std::endl;
+        std::cout << "== TIN_SurSimQ ==" << std::endl;
         simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
             output_file, &org_height_map, epsilon, source_index, destination_index,
             1, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -220,7 +220,7 @@ int main(int argc, char *argv[])
             write_file_header, 3);
         std::cout << std::endl;
 
-        std::cout << "== Net_SimQue ==" << std::endl;
+        std::cout << "== TIN_NetSimQ ==" << std::endl;
         simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
             output_file, &org_height_map, epsilon, source_index, destination_index,
             3, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -232,7 +232,7 @@ int main(int argc, char *argv[])
         std::cout << std::endl;
     }
 
-    std::cout << "== Mes_SimQue_AdpM ==" << std::endl;
+    std::cout << "== PC_MesSimQ_Adapt(HM) ==" << std::endl;
     simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
                                                      destination_index, 6,
                                                      height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -243,7 +243,7 @@ int main(int argc, char *argv[])
                                                      write_file_header, 1);
     std::cout << std::endl;
 
-    std::cout << "== Mem_SimQue ==" << std::endl;
+    std::cout << "== HM_MesSimQ ==" << std::endl;
     simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
                                                      destination_index, 1,
                                                      height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -254,7 +254,7 @@ int main(int argc, char *argv[])
                                                      write_file_header, 1);
     std::cout << std::endl;
 
-    std::cout << "== Mem_SimQue_LQT1 ==" << std::endl;
+    std::cout << "== HM_MesSimQ_LQT1 ==" << std::endl;
     simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
                                                      destination_index, 2,
                                                      height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -265,7 +265,7 @@ int main(int argc, char *argv[])
                                                      write_file_header, 1);
     std::cout << std::endl;
 
-    std::cout << "== Mem_SimQue_LQT2 ==" << std::endl;
+    std::cout << "== HM_MesSimQ_LQT2 ==" << std::endl;
     simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
                                                      destination_index, 3,
                                                      height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -276,7 +276,7 @@ int main(int argc, char *argv[])
                                                      write_file_header, 1);
     std::cout << std::endl;
 
-    std::cout << "== Unf_Que_AdpM ==" << std::endl;
+    std::cout << "== TIN_UnfQ_Adapt(HM) ==" << std::endl;
     terrain_face_exact_and_face_appr_and_vertex_with_output(
         output_file, &org_height_map, epsilon, source_index,
         destination_index, 1, height_map_or_point_cloud_exact_distance,
@@ -287,7 +287,7 @@ int main(int argc, char *argv[])
         write_file_header, 1);
     std::cout << std::endl;
 
-    std::cout << "== Ste_Que_AdpM ==" << std::endl;
+    std::cout << "== TIN_SteQ_Adapt(HM) ==" << std::endl;
     terrain_face_exact_and_face_appr_and_vertex_with_output(
         output_file, &org_height_map, epsilon, source_index,
         destination_index, 2, height_map_or_point_cloud_exact_distance,
@@ -298,7 +298,7 @@ int main(int argc, char *argv[])
         write_file_header, 1);
     std::cout << std::endl;
 
-    std::cout << "== Dij_Que_AdpM ==" << std::endl;
+    std::cout << "== TIN_DijQ_Adapt(HM) ==" << std::endl;
     terrain_face_exact_and_face_appr_and_vertex_with_output(
         output_file, &org_height_map, epsilon, source_index,
         destination_index, 3, height_map_or_point_cloud_exact_distance,
@@ -309,7 +309,7 @@ int main(int argc, char *argv[])
         write_file_header, 1);
     std::cout << std::endl;
 
-    std::cout << "== Con_Que_AdpM ==" << std::endl;
+    std::cout << "== PC_ConQ_Adapt(HM) ==" << std::endl;
     height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
                                           height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                           run_knn_and_range_query, knn_and_range_query_obj_num,
@@ -319,7 +319,7 @@ int main(int argc, char *argv[])
                                           write_file_header, 1);
     std::cout << std::endl;
 
-    std::cout << "== Eff_Que ==" << std::endl;
+    std::cout << "== HM_EffQ ==" << std::endl;
     height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
                                           height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                           run_knn_and_range_query, knn_and_range_query_obj_num,
@@ -329,7 +329,7 @@ int main(int argc, char *argv[])
                                           write_file_header, 1);
     std::cout << std::endl;
 
-    std::cout << "== Mes_SimQue ==" << std::endl;
+    std::cout << "== PC_MesSimQ ==" << std::endl;
     simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
                                                      destination_index, 6,
                                                      height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -340,7 +340,7 @@ int main(int argc, char *argv[])
                                                      write_file_header, 2);
     std::cout << std::endl;
 
-    std::cout << "== Mem_SimQue_AdpC ==" << std::endl;
+    std::cout << "== HM_MesSimQ_Adapt(PC) ==" << std::endl;
     simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
                                                      destination_index, 1,
                                                      height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -351,7 +351,7 @@ int main(int argc, char *argv[])
                                                      write_file_header, 2);
     std::cout << std::endl;
 
-    std::cout << "== Unf_Que_AdpC ==" << std::endl;
+    std::cout << "== TIN_UnfQ_Adapt(PC) ==" << std::endl;
     terrain_face_exact_and_face_appr_and_vertex_with_output(
         output_file, &org_height_map, epsilon, source_index,
         destination_index, 1, height_map_or_point_cloud_exact_distance,
@@ -362,7 +362,7 @@ int main(int argc, char *argv[])
         write_file_header, 2);
     std::cout << std::endl;
 
-    std::cout << "== Ste_Que_AdpC ==" << std::endl;
+    std::cout << "== TIN_SteQ_Adapt(PC) ==" << std::endl;
     terrain_face_exact_and_face_appr_and_vertex_with_output(
         output_file, &org_height_map, epsilon, source_index,
         destination_index, 2, height_map_or_point_cloud_exact_distance,
@@ -373,7 +373,7 @@ int main(int argc, char *argv[])
         write_file_header, 2);
     std::cout << std::endl;
 
-    std::cout << "== Dij_Que_AdpC ==" << std::endl;
+    std::cout << "== TIN_DijQ_Adapt(PC) ==" << std::endl;
     terrain_face_exact_and_face_appr_and_vertex_with_output(
         output_file, &org_height_map, epsilon, source_index,
         destination_index, 3, height_map_or_point_cloud_exact_distance,
@@ -384,7 +384,7 @@ int main(int argc, char *argv[])
         write_file_header, 2);
     std::cout << std::endl;
 
-    std::cout << "== Con_Que ==" << std::endl;
+    std::cout << "== PC_ConQ ==" << std::endl;
     height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
                                           height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                           run_knn_and_range_query, knn_and_range_query_obj_num,
@@ -394,7 +394,7 @@ int main(int argc, char *argv[])
                                           write_file_header, 2);
     std::cout << std::endl;
 
-    std::cout << "== Eff_Que_AdpC ==" << std::endl;
+    std::cout << "== HM_EffQ_Adapt(PC) ==" << std::endl;
     height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
                                           height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                           run_knn_and_range_query, knn_and_range_query_obj_num,
@@ -404,7 +404,7 @@ int main(int argc, char *argv[])
                                           write_file_header, 2);
     std::cout << std::endl;
 
-    std::cout << "== Mes_SimQue_AdpT ==" << std::endl;
+    std::cout << "== PC_MesSimQ_Adapt(TIN) ==" << std::endl;
     simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
                                                      destination_index, 6,
                                                      height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -415,7 +415,7 @@ int main(int argc, char *argv[])
                                                      write_file_header, 3);
     std::cout << std::endl;
 
-    std::cout << "== Mem_SimQue_AdpT ==" << std::endl;
+    std::cout << "== HM_MesSimQ_Adapt(TIN) ==" << std::endl;
     simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
                                                      destination_index, 1,
                                                      height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -426,7 +426,7 @@ int main(int argc, char *argv[])
                                                      write_file_header, 3);
     std::cout << std::endl;
 
-    std::cout << "== Unf_Que ==" << std::endl;
+    std::cout << "== TIN_UnfQ ==" << std::endl;
     terrain_face_exact_and_face_appr_and_vertex_with_output(
         output_file, &org_height_map, epsilon, source_index,
         destination_index, 1, height_map_or_point_cloud_exact_distance,
@@ -437,7 +437,7 @@ int main(int argc, char *argv[])
         write_file_header, 3);
     std::cout << std::endl;
 
-    std::cout << "== Ste_Que ==" << std::endl;
+    std::cout << "== TIN_SteQ ==" << std::endl;
     terrain_face_exact_and_face_appr_and_vertex_with_output(
         output_file, &org_height_map, epsilon, source_index,
         destination_index, 2, height_map_or_point_cloud_exact_distance,
@@ -448,7 +448,7 @@ int main(int argc, char *argv[])
         write_file_header, 3);
     std::cout << std::endl;
 
-    std::cout << "== Dij_Que ==" << std::endl;
+    std::cout << "== TIN_DijQ ==" << std::endl;
     terrain_face_exact_and_face_appr_and_vertex_with_output(
         output_file, &org_height_map, epsilon, source_index,
         destination_index, 3, height_map_or_point_cloud_exact_distance,
@@ -459,7 +459,7 @@ int main(int argc, char *argv[])
         write_file_header, 3);
     std::cout << std::endl;
 
-    std::cout << "== Con_Que_AdpT ==" << std::endl;
+    std::cout << "== PC_ConQ_Adapt(TIN) ==" << std::endl;
     height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
                                           height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                           run_knn_and_range_query, knn_and_range_query_obj_num,
@@ -469,7 +469,7 @@ int main(int argc, char *argv[])
                                           write_file_header, 3);
     std::cout << std::endl;
 
-    std::cout << "== Eff_Que_AdpT ==" << std::endl;
+    std::cout << "== HM_EffQ_Adapt(TIN) ==" << std::endl;
     height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
                                           height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                           run_knn_and_range_query, knn_and_range_query_obj_num,
