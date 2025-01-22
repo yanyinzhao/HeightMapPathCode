@@ -4,39 +4,46 @@
 
 This project provides the implementation for efficient proximity queries on simplified height maps. We refer the readers to our paper for more details.
 
-We compared 31 algorithms as follows (the algorithms calculate the path passing on a height map as default):
+We compared 37 algorithms as follows (the algorithms calculate the path passing on a height map as default):
 
-- TIN-SurSimQ-Adapt(HM) (baseline simplification algorithm)
-- TIN-SurSimQ-Adapt(PC) (baseline simplification algorithm that calculates the path passing on a point cloud)
-- TIN-SurSimQ (baseline simplification algorithm that calculates the path passing on a TIN)
-- TIN-NetSimQ-Adapt(HM) (baseline simplification algorithm)
-- TIN-NetSimQ-Adapt(PC) (baseline simplification algorithm that calculates the path passing on a point cloud)
-- TIN-NetSimQ (baseline simplification algorithm that calculates the path passing on a TIN)
-- PC-MesSimQ-Adapt(HM) (baseline simplification algorithm)
-- PC-MesSimQ (baseline simplification algorithm that calculates the path passing on a point cloud)
-- PC-MesSimQ-Adapt(TIN) (baseline simplification algorithm that calculates the path passing on a TIN)
-- HM-MesSimQ-LS (variation of our simplification algorithm)
-- HM-MesSimQ-LST (variation of our simplification algorithm)
-- HM-MesSimQ-LQT1 (variation of our simplification algorithm)
-- HM-MesSimQ-LQT2 (variation of our simplification algorithm)
-- HM-MesSimQ (our simplification algorithm)
-- HM-MesSimQ-Adapt(PC) (our simplification algorithm that calculate the path passing on a point cloud)
-- HM-MesSimQ-Adapt(TIN) (our simplification algorithm that calculate the path passing on a TIN)
-- TIN-UnfQ-Adapt(HM) (baseline shortest path query algorithm)
-- TIN-UnfQ-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- TIN-UnfQ (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- TIN-SteQ-Adapt(HM) (baseline shortest path query algorithm)
-- TIN-SteQ-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- TIN-SteQ (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- TIN-DijQ-Adapt(HM) (baseline shortest path query algorithm)
-- TIN-DijQ-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- TIN-DijQ (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- PC-ConQ-Adapt(HM) (baseline shortest path query algorithm)
-- PC-ConQ (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- PC-ConQ-Adapt(TIN) (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- HM-EffQ (our shortest path query algorithm)
-- HM-EffQ-Adapt(PC) (our shortest path query algorithm that calculate the path passing on a point cloud)
-- HM-EffQ-Adapt(TIN) (our shortest path query algorithm that calculate the path passing on a TIN)
+- TIN-SSimplify-Adapt(HM) (baseline simplification algorithm)
+- TIN-SSimplify-Adapt(PC) (baseline simplification algorithm that calculates the path passing on a point cloud)
+- TIN-SSimplify (baseline simplification algorithm that calculates the path passing on a TIN)
+- TIN-NSimplify-Adapt(HM) (baseline simplification algorithm)
+- TIN-NSimplify-Adapt(PC) (baseline simplification algorithm that calculates the path passing on a point cloud)
+- TIN-NSimplify (baseline simplification algorithm that calculates the path passing on a TIN)
+- HM-Simplify-LS (variation of our simplification algorithm)
+- HM-Simplify-LST (variation of our simplification algorithm)
+- HM-Simplify-LQT1 (variation of our simplification algorithm)
+- HM-Simplify-LQT2 (variation of our simplification algorithm)
+- HM-Simplify (our simplification algorithm)
+- HM-Simplify-Adapt(PC) (our simplification algorithm that calculate the path passing on a point cloud)
+- HM-Simplify-Adapt(TIN) (our simplification algorithm that calculate the path passing on a TIN)
+- TIN-ESSP-Bas-Adapt(HM) (baseline shortest path query algorithm)
+- TIN-ESSP-Adv-Adapt(HM) (baseline shortest path query algorithm)
+- TIN-ESSP-Bas-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- TIN-ESSP-Adv-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- TIN-ESSP-Bas (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- TIN-ESSP-Adv (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- TIN-ASSP-Adapt(HM) (baseline shortest path query algorithm)
+- TIN-ASSP-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- TIN-ASSP (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- TIN-NSP-Bas-Adapt(HM) (baseline shortest path query algorithm)
+- TIN-NSP-Adv-Adapt(HM) (baseline shortest path query algorithm)
+- TIN-NSP-Bas-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- TIN-NSP-Adv-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- TIN-NSP-Bas (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- TIN-NSP-Adv (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- PC-SP-Adapt(HM) (baseline shortest path query algorithm)
+- PC-SP (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- PC-SP-Adapt(TIN) (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- HM-SP-Bas (our shortest path query algorithm)
+- HM-SP-Adv (our shortest path query algorithm)
+- HM-SP-Bas-Adapt(PC) (our shortest path query algorithm that calculate the path passing on a point cloud)
+- HM-SP-Adv-Adapt(PC) (our shortest path query algorithm that calculate the path passing on a point cloud)
+- HM-SP-Bas-Adapt(TIN) (our shortest path query algorithm that calculate the path passing on a TIN)
+- HM-SP-Adv-Adapt(TIN) (our shortest path query algorithm that calculate the path passing on a TIN)
+
 
 Make sure there is a folder called "input/" and a folder called "output/" under the working directory. They will be used for storing the input/output files.
 
@@ -191,7 +198,7 @@ last_vertex_x_coord last_vertex_y_coord last_vertex_z_coord
 last_face_1st_vertex_ID last_face_2nd_vertex_ID last_face_3td_vertex_ID
 ```
 
-Since TIN-SurSimQ-Adapt(HM), TIN-SurSimQ-Adapt(PC), TIN-SurSimQ, TIN-NetSimQ-Adapt(HM), TIN-NetSimQ-Adapt(PC), TIN-NetSimQ, HM-MesSimQ-LS, and HM-MesSimQ-LST are time consuming or having large memory usage, the project will run all algorithms on small-version dataset ([data_and_index] <= 9). The project will run all algorithms except these mentioned algorithms on original dataset ([data_and_index] > 9).
+Since TIN-SSimplify-Adapt(HM), TIN-SSimplify-Adapt(PC), TIN-SSimplify, TIN-NSimplify-Adapt(HM), TIN-NSimplify-Adapt(PC), TIN-NSimplify, HM-Simplify-LS, and HM-Simplify-LST are time consuming or having large memory usage, and TIN-ESSP-Adv-Adapt(HM), TIN-ESSP-Adv-Adapt(PC), TIN-ESSP-Adv, TIN-SNP-Adv-Adapt(HM), TIN-SNP-Adv-Adapt(PC), TIN-SNP-Adv, HM-SP-Adv-LS, and HM-SP-Adv-LST depends on these algorithms, the project will run all algorithms on small-version dataset ([data_and_index] <= 9). The project will run all algorithms except these mentioned algorithms on original dataset ([data_and_index] > 9).
 
 In addition, we strongly encourage you to set [run_knn_and_range_query] to 0 if you are not conducting experiments. Otherwise, it will take a very long time to calculate them. 
 

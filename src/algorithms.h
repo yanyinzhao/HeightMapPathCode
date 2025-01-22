@@ -1074,46 +1074,46 @@ void simplified_height_map_or_point_cloud_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== HM_MesSimQ ==\n";
+                ofs << "\n== HM_Simplify and HM_SP_Adv ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== HM_MesSimQ_Adapt(PC) ==\n";
+                ofs << "\n== HM_Simplify_Adapt(PC) and HM_SP_Adv_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== HM_MesSimQ_Adapt(TIN) ==\n";
+                ofs << "\n== HM_Simplify_Adapt(TIN) and HM_SP_Adv_Adapt(TIN) ==\n";
             }
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 2)
         {
-            ofs << "\n== HM_MesSimQ_LQT1 ==\n";
+            ofs << "\n== HM_Simplify_LQT1 and HM_SP_Adv_LQT1 ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 3)
         {
-            ofs << "\n== HM_MesSimQ_LQT2 ==\n";
+            ofs << "\n== HM_Simplify_LQT2 and HM_SP_Adv_LQT2 ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 4)
         {
-            ofs << "\n== HM_MesSimQ_LS ==\n";
+            ofs << "\n== HM_Simplify_LS and HM_SP_Adv_LS ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 5)
         {
-            ofs << "\n== HM_MesSimQ_LST ==\n";
+            ofs << "\n== HM_Simplify_LST and HM_SP_Adv_LST ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 6)
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== PC_MesSimQ_Adapt(HM) ==\n";
+                ofs << "\n== PC_Simplify_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== PC_MesSimQ ==\n";
+                ofs << "\n== PC_Simplify ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== PC_MesSimQ_Adapt(TIN) ==\n";
+                ofs << "\n== PC_Simplify_Adapt(TIN) ==\n";
             }
         }
     }
@@ -1215,15 +1215,15 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== TIN_SurSimQ_Adapt(HM) ==\n";
+                ofs << "\n== TIN_SSimplify_Adapt(HM) and TIN_ESSP_Adv_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== TIN_SurSimQ_Adapt(PC) ==\n";
+                ofs << "\n== TIN_SSimplify_Adapt(PC) and TIN_ESSP_Adv_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== TIN_SurSimQ ==\n";
+                ofs << "\n== TIN_SSimplify and TIN_ESSP_Adv ==\n";
             }
         }
         else if (face_exact_one_face_appr_two_vertex_three == 2)
@@ -1234,15 +1234,15 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== TIN_NetSimQ_Adapt(HM) ==\n";
+                ofs << "\n== TIN_NSimplify_Adapt(HM) and TIN_NSP_Adv_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== TIN_NetSimQ_Adapt(PC) ==\n";
+                ofs << "\n== TIN_NSimplify_Adapt(PC) and TIN_NSP_Adv_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== TIN_NetSimQ ==\n";
+                ofs << "\n== TIN_NSimplify and TIN_NSP_Adv ==\n";
             }
         }
     }
@@ -1333,30 +1333,30 @@ void height_map_or_point_cloud_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== HM_EffQ ==\n";
+                ofs << "\n== HM_SP_Bas ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== HM_EffQ_Adapt(PC) ==\n";
+                ofs << "\n== HM_SP_Bas_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== HM_EffQ_Adapt(TIN) ==\n";
+                ofs << "\n== HM_SP_Bas_Adapt(TIN) ==\n";
             }
         }
         else if (height_map_one_point_cloud_two == 2)
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== PC_ConQ_Adapt(HM) ==\n";
+                ofs << "\n== PC_SP_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== PC_ConQ ==\n";
+                ofs << "\n== PC_SP ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== PC_ConQ_Adapt(TIN) ==\n";
+                ofs << "\n== PC_SP_Adapt(TIN) ==\n";
             }
         }
     }
@@ -1461,45 +1461,45 @@ void terrain_face_exact_and_face_appr_and_vertex_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== TIN_UnfQ_Adapt(HM) ==\n";
+                ofs << "\n== TIN_ESSP_Bas_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== TIN_UnfQ_Adapt(PC) ==\n";
+                ofs << "\n== TIN_ESSP_Bas_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== TIN_UnfQ ==\n";
+                ofs << "\n== TIN_ESSP_Bas ==\n";
             }
         }
         else if (face_exact_one_face_appr_two_vertex_three == 2)
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== TIN_SteQ_Adapt(HM) ==\n";
+                ofs << "\n== TIN_ASSP_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== TIN_SteQ_Adapt(PC) ==\n";
+                ofs << "\n== TIN_ASSP_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== TIN_SteQ ==\n";
+                ofs << "\n== TIN_ASSP ==\n";
             }
         }
         else if (face_exact_one_face_appr_two_vertex_three == 3)
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== TIN_DijQ_Adapt(HM) ==\n";
+                ofs << "\n== TIN_NSP_Bas_Adapt(HM) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== TIN_DijQ_Adapt(PC) ==\n";
+                ofs << "\n== TIN_NSP_Bas_Adapt(PC) ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== TIN_DijQ ==\n";
+                ofs << "\n== TIN_NSP_Bas ==\n";
             }
         }
     }
