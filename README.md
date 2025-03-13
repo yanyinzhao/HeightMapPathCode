@@ -4,7 +4,7 @@
 
 This project provides the implementation for efficient proximity queries on simplified height maps. We refer the readers to our paper for more details.
 
-We compared 37 algorithms as follows (the algorithms calculate the path passing on a height map as default):
+We compared 28 algorithms as follows (the algorithms calculate the path passing on a height map as default):
 
 - TIN-SSimplify-Adapt(HM) (baseline simplification algorithm)
 - TIN-SSimplify-Adapt(PC) (baseline simplification algorithm that calculates the path passing on a point cloud)
@@ -19,30 +19,21 @@ We compared 37 algorithms as follows (the algorithms calculate the path passing 
 - HM-Simplify (our simplification algorithm)
 - HM-Simplify-Adapt(PC) (our simplification algorithm that calculate the path passing on a point cloud)
 - HM-Simplify-Adapt(TIN) (our simplification algorithm that calculate the path passing on a TIN)
-- TIN-ESSP-Bas-Adapt(HM) (baseline shortest path query algorithm)
-- TIN-ESSP-Adv-Adapt(HM) (baseline shortest path query algorithm)
-- TIN-ESSP-Bas-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- TIN-ESSP-Adv-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- TIN-ESSP-Bas (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- TIN-ESSP-Adv (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- TIN-ESSP-Adapt(HM) (baseline shortest path query algorithm)
+- TIN-ESSP-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- TIN-ESSP (baseline shortest path query algorithm that calculates the path passing on a TIN)
 - TIN-ASSP-Adapt(HM) (baseline shortest path query algorithm)
 - TIN-ASSP-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
 - TIN-ASSP (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- TIN-NSP-Bas-Adapt(HM) (baseline shortest path query algorithm)
-- TIN-NSP-Adv-Adapt(HM) (baseline shortest path query algorithm)
-- TIN-NSP-Bas-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- TIN-NSP-Adv-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
-- TIN-NSP-Bas (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- TIN-NSP-Adv (baseline shortest path query algorithm that calculates the path passing on a TIN)
+- TIN-NSP-Adapt(HM) (baseline shortest path query algorithm)
+- TIN-NSP-Adapt(PC) (baseline shortest path query algorithm that calculates the path passing on a point cloud)
+- TIN-NSP (baseline shortest path query algorithm that calculates the path passing on a TIN)
 - PC-SP-Adapt(HM) (baseline shortest path query algorithm)
 - PC-SP (baseline shortest path query algorithm that calculates the path passing on a point cloud)
 - PC-SP-Adapt(TIN) (baseline shortest path query algorithm that calculates the path passing on a TIN)
-- HM-SP-Bas (our shortest path query algorithm)
-- HM-SP-Adv (our shortest path query algorithm)
-- HM-SP-Bas-Adapt(PC) (our shortest path query algorithm that calculate the path passing on a point cloud)
-- HM-SP-Adv-Adapt(PC) (our shortest path query algorithm that calculate the path passing on a point cloud)
-- HM-SP-Bas-Adapt(TIN) (our shortest path query algorithm that calculate the path passing on a TIN)
-- HM-SP-Adv-Adapt(TIN) (our shortest path query algorithm that calculate the path passing on a TIN)
+- HM-SP (our shortest path query algorithm)
+- HM-SP-Adapt(PC) (our shortest path query algorithm that calculate the path passing on a point cloud)
+- HM-SP-Adapt(TIN) (our shortest path query algorithm that calculate the path passing on a TIN)
 
 
 Make sure there is a folder called "input/" and a folder called "output/" under the working directory. They will be used for storing the input/output files.
@@ -198,7 +189,9 @@ last_vertex_x_coord last_vertex_y_coord last_vertex_z_coord
 last_face_1st_vertex_ID last_face_2nd_vertex_ID last_face_3td_vertex_ID
 ```
 
-Since TIN-SSimplify-Adapt(HM), TIN-SSimplify-Adapt(PC), TIN-SSimplify, TIN-NSimplify-Adapt(HM), TIN-NSimplify-Adapt(PC), TIN-NSimplify, HM-Simplify-LS, and HM-Simplify-LST are time consuming or having large memory usage, and TIN-ESSP-Adv-Adapt(HM), TIN-ESSP-Adv-Adapt(PC), TIN-ESSP-Adv, TIN-SNP-Adv-Adapt(HM), TIN-SNP-Adv-Adapt(PC), TIN-SNP-Adv, HM-SP-Adv-LS, and HM-SP-Adv-LST depends on these algorithms, the project will run all algorithms on small-version dataset ([data_and_index] <= 9). The project will run all algorithms except these mentioned algorithms on original dataset ([data_and_index] > 9).
+For TIN-ESSP-Adapt(HM), TIN-ESSP-Adapt(PC), TIN-ESSP, TIN-SNP-Adapt(HM), TIN-SNP-Adapt(PC), TIN-SNP, HM-SP, HM-SP-Adapt(PC) and HM-SP-Adapt(TIN), we distinguish the case that when epsilon=0 (resp. epsilon>0), we use them on the original (resp. simplified) height maps or TINs.
+
+Since TIN-SSimplify-Adapt(HM), TIN-SSimplify-Adapt(PC), TIN-SSimplify, TIN-NSimplify-Adapt(HM), TIN-NSimplify-Adapt(PC), TIN-NSimplify, HM-Simplify-LS, and HM-Simplify-LST are time consuming or having large memory usage, and TIN-ESSP-Adapt(HM) on the simplified TIN, TIN-ESSP-Adapt(PC) on the simplified TIN, TIN-ESSP on the simplified TIN, TIN-SNP-Adapt(HM) on the simplified TIN, TIN-SNP-Adapt(PC) on the simplified TIN, TIN-SNP on the simplified TIN, HM-SP-LS on the simplified height map, and HM-SP-LST on the simplified height map depends on these algorithms, the project will run all algorithms on small-version dataset ([data_and_index] <= 9). The project will run all algorithms except these mentioned algorithms on original dataset ([data_and_index] > 9).
 
 In addition, we strongly encourage you to set [run_knn_and_range_query] to 0 if you are not conducting experiments. Otherwise, it will take a very long time to calculate them. 
 
@@ -208,14 +201,22 @@ An example:
 ./main 0 0.5 0
 ```
 
-In this example, [data_and_index] is 0, [epsilon] is 0.5, [run_knn_and_range_query] is 0. So, it will run BH height map, point cloud and TIN dataset, with dataset size equal to 10086, epsilon is 0.5, it will not run knn and range query. It will run all algorithms.
+In this example, [data_and_index] is 0, [epsilon] is 0.5, [run_knn_and_range_query] is 0. So, it will run BH height map, point cloud and TIN dataset, with dataset size equal to 10086, epsilon is 0.5, it will not run knn and range query. It will run all algorithms (for TIN-ESSP-Adapt(HM), TIN-ESSP-Adapt(PC), TIN-ESSP, TIN-SNP-Adapt(HM), TIN-SNP-Adapt(PC), TIN-SNP, HM-SP, HM-SP-Adapt(PC) and HM-SP-Adapt(TIN), they are applied on the simplified height maps or TINs).
+
+Another example:
+
+```
+./main 0 0 0
+```
+
+In this example, [data_and_index] is 0, [epsilon] is 0, [run_knn_and_range_query] is 0. So, it will run BH height map, point cloud and TIN dataset, with dataset size equal to 10086, epsilon is 0.5, it will not run knn and range query. It will only run TIN-ESSP-Adapt(HM), TIN-ESSP-Adapt(PC), TIN-ESSP, TIN-SNP-Adapt(HM), TIN-SNP-Adapt(PC), TIN-SNP, HM-SP, HM-SP-Adapt(PC) and HM-SP-Adapt(TIN) on the original height maps, point clouds or TINs.
 
 ## Output
 
 The output will be stored in "output/output.txt" file. The format will be as follows:
 
 ```
-[dataset] [dataset_size] [epsilon] [height_map_to_point_cloud_or_terrain_time (ms)] [height_map_to_point_cloud_or_terrain_memory_usage (MB)] [simplification_time (ms)] [memory_usage (MB)] [output_size (MB)] [query_time (ms)] [distance_error_height_map_or_point_cloud] [distance_error_terrain] [knn_query_time] [knn_error_height_map_or_point_cloud] [knn_error_terrain] [range_query_time] [range_error_height_map_or_point_cloud] [range_error_terrain]
+[dataset] [dataset_size] [epsilon] [height_map_to_point_cloud_or_terrain_time (ms)] [height_map_to_point_cloud_or_terrain_memory_usage (MB)] [preprocessing_time (ms)] [memory_usage (MB)] [output_size (MB)] [query_time (ms)] [distance_error_height_map_or_point_cloud] [distance_error_terrain] [knn_query_time] [knn_error_height_map_or_point_cloud] [knn_error_terrain] [range_query_time] [range_error_height_map_or_point_cloud] [range_error_terrain]
 ```
 
 These information will also be shown in the terminal. 

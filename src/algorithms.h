@@ -153,7 +153,7 @@ void calculate_terrain_exact_knn_and_range_query(
 void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_height_map,
                                           double epsilon,
                                           int source_index, int destination_index,
-                                          double &simplification_time, double &simplification_memory_usage, double &output_size,
+                                          double &preprocessing_time, double &preprocessing_memory_usage, double &output_size,
                                           double &query_time, double &query_memory_usage, double &distance_result,
                                           std::vector<height_map_geodesic::PathPoint> &path_result,
                                           int org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six,
@@ -172,7 +172,7 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
                                           double &height_map_or_point_cloud_range_query_error,
                                           double &terrain_range_query_error)
 {
-    auto start_simplification_time = std::chrono::high_resolution_clock::now();
+    auto start_preprocessing_time = std::chrono::high_resolution_clock::now();
 
     height_map_geodesic::HeightMap new_height_map;
     new_height_map.copy_height_map(org_height_map);
@@ -450,18 +450,18 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
         }
     }
 
-    auto stop_simplification_time = std::chrono::high_resolution_clock::now();
-    auto duration_simplification_time =
-        std::chrono::duration_cast<std::chrono::microseconds>(stop_simplification_time - start_simplification_time);
-    simplification_time = duration_simplification_time.count();
-    simplification_time /= 1000;
+    auto stop_preprocessing_time = std::chrono::high_resolution_clock::now();
+    auto duration_preprocessing_time =
+        std::chrono::duration_cast<std::chrono::microseconds>(stop_preprocessing_time - start_preprocessing_time);
+    preprocessing_time = duration_preprocessing_time.count();
+    preprocessing_time /= 1000;
 
     simp_height_map_query(org_height_map, &new_height_map, dominate_table_map,
                           del_p_dom_by_map, source_index, destination_index,
                           query_time, query_memory_usage, distance_result, path_result,
                           org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six);
 
-    simplification_memory_usage = org_total_node_size * org_node_size + path_result.size() * sizeof(height_map_geodesic::PathPoint) + sizeof(double) + 4 * del_p_dom_by_map.size() * sizeof(double) + (new_height_map.hm_points().size() - del_p_dom_by_map.size()) * 3 * sizeof(double);
+    preprocessing_memory_usage = org_total_node_size * org_node_size + path_result.size() * sizeof(height_map_geodesic::PathPoint) + sizeof(double) + 4 * del_p_dom_by_map.size() * sizeof(double) + (new_height_map.hm_points().size() - del_p_dom_by_map.size()) * 3 * sizeof(double);
     output_size = (new_height_map.hm_points().size() - del_p_dom_by_map.size()) * 3 * sizeof(double);
 
     if (run_knn_and_range_query)
@@ -485,7 +485,7 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex(
     int face_exact_one_face_appr_two_vertex_three,
     double &height_map_or_point_cloud_to_terrain_time,
     double &height_map_or_point_cloud_to_terrain_memory_usage,
-    double &simplification_time, double &simplification_memory_usage, double &output_size,
+    double &preprocessing_time, double &preprocessing_memory_usage, double &output_size,
     double &query_time, double &query_memory_usage, double &distance_result,
     std::vector<geodesic::SurfacePoint> &path_result,
     bool run_knn_and_range_query,
@@ -514,7 +514,7 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex(
         org_terrain_vertex, org_terrain_face,
         height_map_or_point_cloud_to_terrain_time, height_map_or_point_cloud_to_terrain_memory_usage);
 
-    auto start_simplification_time = std::chrono::high_resolution_clock::now();
+    auto start_preprocessing_time = std::chrono::high_resolution_clock::now();
 
     std::unordered_map<unsigned, std::unordered_map<unsigned, double>> guest_map;
     std::unordered_map<unsigned, std::unordered_map<unsigned, unsigned>> host_map;
@@ -650,11 +650,11 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex(
            org_mesh.m_xmin == post_mesh.m_xmin &&
            org_mesh.m_ymin == post_mesh.m_ymin);
 
-    auto stop_simplification_time = std::chrono::high_resolution_clock::now();
-    auto duration_simplification_time =
-        std::chrono::duration_cast<std::chrono::microseconds>(stop_simplification_time - start_simplification_time);
-    simplification_time = duration_simplification_time.count();
-    simplification_time /= 1000;
+    auto stop_preprocessing_time = std::chrono::high_resolution_clock::now();
+    auto duration_preprocessing_time =
+        std::chrono::duration_cast<std::chrono::microseconds>(stop_preprocessing_time - start_preprocessing_time);
+    preprocessing_time = duration_preprocessing_time.count();
+    preprocessing_time /= 1000;
 
     write_terrain_off_file(pre_terrain_vertex, pre_terrain_face);
 
@@ -683,18 +683,18 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex(
     }
     if (face_exact_one_face_appr_two_vertex_three == 1)
     {
-        simplification_memory_usage = algorithm_face_exact.get_memory();
+        preprocessing_memory_usage = algorithm_face_exact.get_memory();
     }
     else if (face_exact_one_face_appr_two_vertex_three == 2)
     {
-        simplification_memory_usage = algorithm_face_appr.get_memory();
+        preprocessing_memory_usage = algorithm_face_appr.get_memory();
     }
     else if (face_exact_one_face_appr_two_vertex_three == 3)
     {
-        simplification_memory_usage = algorithm_vertex.get_memory();
+        preprocessing_memory_usage = algorithm_vertex.get_memory();
     }
 
-    simplification_memory_usage += path_result.size() * sizeof(geodesic::SurfacePoint) + sizeof(double) + map_size + post_mesh.vertices().size() * 3 * sizeof(double) + post_mesh.faces().size() * 3 * sizeof(int);
+    preprocessing_memory_usage += path_result.size() * sizeof(geodesic::SurfacePoint) + sizeof(double) + map_size + post_mesh.vertices().size() * 3 * sizeof(double) + post_mesh.faces().size() * 3 * sizeof(int);
     output_size = post_mesh.vertices().size() * 3 * sizeof(double) + post_mesh.faces().size() * 3 * sizeof(int);
 
     if (run_knn_and_range_query)
@@ -1020,8 +1020,8 @@ void simplified_height_map_or_point_cloud_with_output(
     std::string write_file_header,
     int height_map_one_point_cloud_two_terrain_three)
 {
-    double simplification_time = 0;
-    double simplification_memory_usage = 0;
+    double preprocessing_time = 0;
+    double preprocessing_memory_usage = 0;
     double output_size = 0;
     double query_time = 0;
     double query_memory_usage = 0;
@@ -1040,7 +1040,7 @@ void simplified_height_map_or_point_cloud_with_output(
     range_list.clear();
     simplified_height_map_or_point_cloud(
         org_height_map, epsilon, source_index, destination_index,
-        simplification_time, simplification_memory_usage, output_size,
+        preprocessing_time, preprocessing_memory_usage, output_size,
         query_time, query_memory_usage, distance_result, path_result,
         org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six, run_knn_and_range_query,
         knn_query_time, range_query_time, knn_and_range_query_obj_num,
@@ -1050,8 +1050,8 @@ void simplified_height_map_or_point_cloud_with_output(
         height_map_or_point_cloud_knn_query_error, terrain_knn_query_error,
         height_map_or_point_cloud_range_query_error, terrain_range_query_error);
 
-    std::cout << "Simplification time: " << simplification_time << " ms" << std::endl;
-    std::cout << "Simplification memory usage: " << simplification_memory_usage / 1e6 << " MB" << std::endl;
+    std::cout << "Preprocessing time: " << preprocessing_time << " ms" << std::endl;
+    std::cout << "Preprocessing memory usage: " << preprocessing_memory_usage / 1e6 << " MB" << std::endl;
     std::cout << "Output size: " << output_size / 1e6 << " MB" << std::endl;
     std::cout << "Query time: " << query_time << " ms" << std::endl;
     std::cout << "Calculated distance: " << distance_result
@@ -1074,32 +1074,32 @@ void simplified_height_map_or_point_cloud_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== HM_Simplify and HM_SP_Adv ==\n";
+                ofs << "\n== HM_Simplify and HM_SP on the simplified height map ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== HM_Simplify_Adapt(PC) and HM_SP_Adv_Adapt(PC) ==\n";
+                ofs << "\n== HM_Simplify_Adapt(PC) and HM_SP_Adapt(PC) on the simplified height map ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== HM_Simplify_Adapt(TIN) and HM_SP_Adv_Adapt(TIN) ==\n";
+                ofs << "\n== HM_Simplify_Adapt(TIN) and HM_SP_Adapt(TIN) on the simplified height map ==\n";
             }
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 2)
         {
-            ofs << "\n== HM_Simplify_LQT1 and HM_SP_Adv_LQT1 ==\n";
+            ofs << "\n== HM_Simplify_LQT1 and HM_SP_LQT1 on the simplified height map ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 3)
         {
-            ofs << "\n== HM_Simplify_LQT2 and HM_SP_Adv_LQT2 ==\n";
+            ofs << "\n== HM_Simplify_LQT2 and HM_SP_LQT2 on the simplified height map ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 4)
         {
-            ofs << "\n== HM_Simplify_LS and HM_SP_Adv_LS ==\n";
+            ofs << "\n== HM_Simplify_LS and HM_SP_LS on the simplified height map ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 5)
         {
-            ofs << "\n== HM_Simplify_LST and HM_SP_Adv_LST ==\n";
+            ofs << "\n== HM_Simplify_LST and HM_SP_LST on the simplified height map ==\n";
         }
         else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six == 6)
         {
@@ -1120,8 +1120,8 @@ void simplified_height_map_or_point_cloud_with_output(
     ofs << write_file_header << "\t"
         << 0 << "\t"
         << 0 / 1e6 << "\t"
-        << simplification_time << "\t"
-        << simplification_memory_usage / 1e6 << "\t"
+        << preprocessing_time << "\t"
+        << preprocessing_memory_usage / 1e6 << "\t"
         << output_size / 1e6 << "\t"
         << query_time << "\t"
         << std::abs(distance_result / height_map_or_point_cloud_exact_distance - 1) << "\t"
@@ -1152,8 +1152,8 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
 {
     double height_map_or_point_cloud_to_terrain_time = 0;
     double height_map_or_point_cloud_to_terrain_memory_usage = 0;
-    double simplification_time = 0;
-    double simplification_memory_usage = 0;
+    double preprocessing_time = 0;
+    double preprocessing_memory_usage = 0;
     double output_size = 0;
     double query_time = 0;
     double query_memory_usage = 0;
@@ -1174,7 +1174,7 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
         org_height_map, epsilon, source_index, destination_index,
         face_exact_one_face_appr_two_vertex_three,
         height_map_or_point_cloud_to_terrain_time, height_map_or_point_cloud_to_terrain_memory_usage,
-        simplification_time, simplification_memory_usage, output_size,
+        preprocessing_time, preprocessing_memory_usage, output_size,
         query_time, query_memory_usage, distance_result, path_result,
         run_knn_and_range_query, knn_query_time, range_query_time,
         knn_and_range_query_obj_num, k_value, range,
@@ -1191,8 +1191,8 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
         std::cout << "Height map or point cloud to terrain time: " << height_map_or_point_cloud_to_terrain_time << " ms" << std::endl;
         std::cout << "Height map or point cloud to terrain memory usage: " << height_map_or_point_cloud_to_terrain_memory_usage / 1e6 << " MB" << std::endl;
     }
-    std::cout << "Simplification time: " << simplification_time << " ms" << std::endl;
-    std::cout << "Simplification memory usage: " << simplification_memory_usage / 1e6 << " MB" << std::endl;
+    std::cout << "Preprocessing time: " << preprocessing_time << " ms" << std::endl;
+    std::cout << "Preprocessing memory usage: " << preprocessing_memory_usage / 1e6 << " MB" << std::endl;
     std::cout << "Output size: " << output_size / 1e6 << " MB" << std::endl;
     std::cout << "Query time: " << query_time << " ms" << std::endl;
     std::cout << "Calculated distance: " << distance_result
@@ -1215,15 +1215,15 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== TIN_SSimplify_Adapt(HM) and TIN_ESSP_Adv_Adapt(HM) ==\n";
+                ofs << "\n== TIN_SSimplify_Adapt(HM) and TIN_ESSP_Adapt(HM) on the simplified TIN ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== TIN_SSimplify_Adapt(PC) and TIN_ESSP_Adv_Adapt(PC) ==\n";
+                ofs << "\n== TIN_SSimplify_Adapt(PC) and TIN_ESSP_Adapt(PC) on the simplified TIN ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== TIN_SSimplify and TIN_ESSP_Adv ==\n";
+                ofs << "\n== TIN_SSimplify and TIN_ESSP on the simplified TIN ==\n";
             }
         }
         else if (face_exact_one_face_appr_two_vertex_three == 2)
@@ -1234,23 +1234,23 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== TIN_NSimplify_Adapt(HM) and TIN_NSP_Adv_Adapt(HM) ==\n";
+                ofs << "\n== TIN_NSimplify_Adapt(HM) and TIN_NSP_Adapt(HM) on the simplified TIN ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== TIN_NSimplify_Adapt(PC) and TIN_NSP_Adv_Adapt(PC) ==\n";
+                ofs << "\n== TIN_NSimplify_Adapt(PC) and TIN_NSP_Adapt(PC) on the simplified TIN ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== TIN_NSimplify and TIN_NSP_Adv ==\n";
+                ofs << "\n== TIN_NSimplify and TIN_NSP on the simplified TIN ==\n";
             }
         }
     }
     ofs << write_file_header << "\t"
         << height_map_or_point_cloud_to_terrain_time << "\t"
         << height_map_or_point_cloud_to_terrain_memory_usage / 1e6 << "\t"
-        << simplification_time << "\t"
-        << simplification_memory_usage / 1e6 << "\t"
+        << preprocessing_time << "\t"
+        << preprocessing_memory_usage / 1e6 << "\t"
         << output_size / 1e6 << "\t"
         << query_time << "\t"
         << std::abs(distance_result / height_map_or_point_cloud_exact_distance - 1) << "\t"
@@ -1333,15 +1333,15 @@ void height_map_or_point_cloud_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== HM_SP_Bas ==\n";
+                ofs << "\n== HM_SP on the original height map ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== HM_SP_Bas_Adapt(PC) ==\n";
+                ofs << "\n== HM_SP_Adapt(PC) on the original point cloud ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== HM_SP_Bas_Adapt(TIN) ==\n";
+                ofs << "\n== HM_SP_Adapt(TIN) on the original TIN ==\n";
             }
         }
         else if (height_map_one_point_cloud_two == 2)
@@ -1461,15 +1461,15 @@ void terrain_face_exact_and_face_appr_and_vertex_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== TIN_ESSP_Bas_Adapt(HM) ==\n";
+                ofs << "\n== TIN_ESSP_Adapt(HM) on the original height map ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== TIN_ESSP_Bas_Adapt(PC) ==\n";
+                ofs << "\n== TIN_ESSP_Adapt(PC) on the original point cloud ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== TIN_ESSP_Bas ==\n";
+                ofs << "\n== TIN_ESSP on the original TIN ==\n";
             }
         }
         else if (face_exact_one_face_appr_two_vertex_three == 2)
@@ -1491,15 +1491,15 @@ void terrain_face_exact_and_face_appr_and_vertex_with_output(
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
-                ofs << "\n== TIN_NSP_Bas_Adapt(HM) ==\n";
+                ofs << "\n== TIN_NSP_Adapt(HM) on the original height map ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 2)
             {
-                ofs << "\n== TIN_NSP_Bas_Adapt(PC) ==\n";
+                ofs << "\n== TIN_NSP_Adapt(PC) on the original point cloud ==\n";
             }
             else if (height_map_one_point_cloud_two_terrain_three == 3)
             {
-                ofs << "\n== TIN_NSP_Bas ==\n";
+                ofs << "\n== TIN_NSP on the original TIN ==\n";
             }
         }
     }
