@@ -508,16 +508,16 @@ namespace point_cloud_geodesic
         for (unsigned i = 0; i < m_pc_points.size(); ++i)
         {
             PC_Point &v = m_pc_points[i];
-            if (v.y() == y_min)
+            if (v.x() == x_min)
             {
-                x_point_num++;
+                y_point_num++;
             }
             else
             {
                 break;
             }
         }
-        y_point_num = m_pc_points.size() / x_point_num;
+        x_point_num = m_pc_points.size() / y_point_num;
 
         m_xpointnum = x_point_num;
         m_ypointnum = y_point_num;

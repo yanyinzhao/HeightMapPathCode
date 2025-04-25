@@ -141,7 +141,30 @@ double epsilon_to_subdivision_level(double epsilon)
     return subdivision_level;
 }
 
-int interation_num(int a, int b)
+int epsilon_prime_ds_to_iternation_num(double epsilon_prime_ds)
+{
+    assert(epsilon_prime_ds > 0 && epsilon_prime_ds <= 1);
+    int iternation = 0;
+    if (epsilon_prime_ds > 0 && epsilon_prime_ds <= 0.05)
+    {
+        iternation = 4;
+    }
+    else if (epsilon_prime_ds > 0.05 && epsilon_prime_ds <= 0.1)
+    {
+        iternation = 3;
+    }
+    else if (epsilon_prime_ds > 0.1 && epsilon_prime_ds <= 0.25)
+    {
+        iternation = 2;
+    }
+    else if (epsilon_prime_ds > 0.25 && epsilon_prime_ds < 1)
+    {
+        iternation = 1;
+    }
+    return iternation;
+}
+
+int iternation_num(int a, int b)
 {
     if (a == 2)
     {
@@ -234,6 +257,18 @@ void calculate_knn_or_range_query_error(std::vector<int> &exact_knn_or_range_lis
     }
 
     knn_or_range_error = (double)knn_or_range_error_count / (double)(exact_knn_or_range_list.size());
+}
+
+void compare_d_value_and_range_value(double &d_value, double &range)
+{
+    if (d_value / 2 > range)
+    {
+        d_value = range * 2;
+    }
+    if (range > d_value / 2)
+    {
+        range = d_value / 2;
+    }
 }
 
 void height_map_merge_four_point(
@@ -1635,7 +1670,7 @@ void simp_height_map_query(
     int source_index, int destination_index,
     double &query_time, double &query_memory_usage, double &distance_result,
     std::vector<height_map_geodesic::PathPoint> &path_result,
-    int org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six)
+    int org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven)
 {
     auto start_query_time = std::chrono::high_resolution_clock::now();
 
@@ -1660,7 +1695,7 @@ void simp_height_map_query(
         height_map_geodesic::PathPoint destination(&new_height_map->hm_points()[destination_index]);
         std::vector<height_map_geodesic::PathPoint> one_source_list(1, source);
         std::vector<height_map_geodesic::PathPoint> one_destination_list(1, destination);
-        for (int k = 0; k < interation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six, 1); k++)
+        for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 1); k++)
         {
             post_algorithm.propagate(one_source_list, &one_destination_list);
         }
@@ -1683,7 +1718,7 @@ void simp_height_map_query(
         {
             destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite.first]));
         }
-        for (int k = 0; k < interation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six, 1); k++)
+        for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 1); k++)
         {
             post_algorithm.propagate(one_source_list, &destinations_list);
         }
@@ -1759,7 +1794,7 @@ void simp_height_map_query(
         {
             destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite.first]));
         }
-        for (int k = 0; k < interation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six, 1); k++)
+        for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 1); k++)
         {
             post_algorithm.propagate(one_source_list, &destinations_list);
         }
@@ -1936,7 +1971,7 @@ void simp_height_map_query(
                 {
                     destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite2.first]));
                 }
-                for (int k = 0; k < interation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six, 1); k++)
+                for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 1); k++)
                 {
                     post_algorithm.propagate(one_source_list, &destinations_list);
                 }
@@ -2025,6 +2060,27 @@ void simp_height_map_query(
     query_time /= 1000;
 }
 
+void simp_height_map_query_ds(
+    std::unordered_map<std::pair<int, int>, std::vector<height_map_geodesic::PathPoint>, boost::hash<std::pair<int, int>>> &all_path,
+    std::unordered_map<std::pair<int, int>, double, boost::hash<std::pair<int, int>>> &all_dist,
+    int source_index, int destination_index,
+    double &query_time, double &query_memory_usage, double &distance_result,
+    std::vector<height_map_geodesic::PathPoint> &path_result)
+{
+    auto start_query_time = std::chrono::high_resolution_clock::now();
+
+    distance_result = all_dist[std::make_pair(source_index, destination_index)];
+    path_result = all_path[std::make_pair(source_index, destination_index)];
+
+    distance_result = round(distance_result * 1000000000.0) / 1000000000.0;
+    query_memory_usage += path_result.size() * sizeof(height_map_geodesic::PathPoint) + sizeof(double);
+
+    auto stop_query_time = std::chrono::high_resolution_clock::now();
+    auto duration_query_time = std::chrono::duration_cast<std::chrono::microseconds>(stop_query_time - start_query_time);
+    query_time = duration_query_time.count();
+    query_time /= 1000;
+}
+
 void simp_height_map_knn_and_range_query(
     height_map_geodesic::HeightMap *org_height_map,
     height_map_geodesic::HeightMap *new_height_map,
@@ -2032,10 +2088,10 @@ void simp_height_map_knn_and_range_query(
     std::unordered_map<int, int> &del_p_dom_by_map,
     int source_index,
     double &knn_query_time, double &range_query_time,
-    int knn_and_range_query_obj_num, int k_value, double range,
+    int knn_and_range_query_obj_num, int k_value, double range, double d_value,
     std::vector<int> &knn_list,
     std::vector<int> &range_list,
-    int org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six)
+    int org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven)
 {
     auto start_knn_or_range_query_time = std::chrono::high_resolution_clock::now();
 
@@ -2044,6 +2100,7 @@ void simp_height_map_knn_and_range_query(
     obj_to_other_obj_distance_and_index_list.clear();
 
     bool contain_source_index = false;
+
     for (int m = org_height_map->hm_points().size() - 1; m > org_height_map->hm_points().size() - 1 - knn_and_range_query_obj_num; m--)
     {
         if (source_index == m)
@@ -2079,7 +2136,7 @@ void simp_height_map_knn_and_range_query(
             height_map_geodesic::PathPoint destination(&new_height_map->hm_points()[destination_index]);
             std::vector<height_map_geodesic::PathPoint> one_source_list(1, source);
             std::vector<height_map_geodesic::PathPoint> one_destination_list(1, destination);
-            for (int k = 0; k < interation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six, 2); k++)
+            for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 2); k++)
             {
                 post_algorithm.propagate(one_source_list, &one_destination_list);
             }
@@ -2102,7 +2159,7 @@ void simp_height_map_knn_and_range_query(
             {
                 destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite.first]));
             }
-            for (int k = 0; k < interation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six, 2); k++)
+            for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 2); k++)
             {
                 post_algorithm.propagate(one_source_list, &destinations_list);
             }
@@ -2178,7 +2235,7 @@ void simp_height_map_knn_and_range_query(
             {
                 destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite.first]));
             }
-            for (int k = 0; k < interation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six, 2); k++)
+            for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 2); k++)
             {
                 post_algorithm.propagate(one_source_list, &destinations_list);
             }
@@ -2355,7 +2412,7 @@ void simp_height_map_knn_and_range_query(
                     {
                         destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite2.first]));
                     }
-                    for (int k = 0; k < interation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_point_six, 2); k++)
+                    for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 2); k++)
                     {
                         post_algorithm.propagate(one_source_list, &destinations_list);
                     }
@@ -2440,12 +2497,15 @@ void simp_height_map_knn_and_range_query(
     auto stop_knn_or_range_query_time = std::chrono::high_resolution_clock::now();
     auto duration_knn_or_range_query_time = std::chrono::duration_cast<std::chrono::microseconds>(stop_knn_or_range_query_time - start_knn_or_range_query_time);
 
+    compare_d_value_and_range_value(d_value, range);
+
     auto start_knn_query_time = std::chrono::high_resolution_clock::now();
     knn_or_range_query(1, k_value, range, obj_to_other_obj_distance_and_index_list, knn_list);
     auto stop_knn_query_time = std::chrono::high_resolution_clock::now();
     auto duration_knn_query_time = std::chrono::duration_cast<std::chrono::microseconds>(stop_knn_query_time - start_knn_query_time);
     knn_query_time = duration_knn_or_range_query_time.count() + duration_knn_query_time.count();
     knn_query_time /= 1000;
+    knn_query_time *= (d_value / 2000);
 
     auto start_range_query_time = std::chrono::high_resolution_clock::now();
     knn_or_range_query(2, k_value, range, obj_to_other_obj_distance_and_index_list, range_list);
@@ -2453,7 +2513,63 @@ void simp_height_map_knn_and_range_query(
     auto duration_range_query_time = std::chrono::duration_cast<std::chrono::microseconds>(stop_range_query_time - start_range_query_time);
     range_query_time = duration_knn_or_range_query_time.count() + duration_range_query_time.count();
     range_query_time /= 1000;
-    range_query_time *= (range / 1000);
+    range_query_time *= (range / 1000) * (d_value / 2000);
+}
+
+void simp_height_map_knn_and_range_query_ds(
+    height_map_geodesic::HeightMap *org_height_map,
+    std::unordered_map<std::pair<int, int>, std::vector<height_map_geodesic::PathPoint>, boost::hash<std::pair<int, int>>> &all_path,
+    std::unordered_map<std::pair<int, int>, double, boost::hash<std::pair<int, int>>> &all_dist,
+    int source_index,
+    double &knn_query_time, double &range_query_time,
+    int knn_and_range_query_obj_num, int k_value, double range, double d_value,
+    std::vector<int> &knn_list, std::vector<int> &range_list)
+{
+    auto start_knn_or_range_query_time = std::chrono::high_resolution_clock::now();
+
+    std::vector<std::pair<double, int>> obj_to_other_obj_distance_and_index_list;
+
+    obj_to_other_obj_distance_and_index_list.clear();
+
+    bool contain_source_index = false;
+
+    for (int m = org_height_map->hm_points().size() - 1; m > org_height_map->hm_points().size() - 1 - knn_and_range_query_obj_num; m--)
+    {
+        if (source_index == m)
+        {
+            contain_source_index = true;
+        }
+        int destination_index = m;
+        if (contain_source_index)
+        {
+            destination_index--;
+        }
+        double distance_result = all_dist[std::make_pair(source_index, destination_index)];
+        distance_result = round(distance_result * 1000000000.0) / 1000000000.0;
+        obj_to_other_obj_distance_and_index_list.push_back(std::make_pair(distance_result, destination_index));
+        std::sort(obj_to_other_obj_distance_and_index_list.begin(), obj_to_other_obj_distance_and_index_list.end());
+    }
+
+    auto stop_knn_or_range_query_time = std::chrono::high_resolution_clock::now();
+    auto duration_knn_or_range_query_time = std::chrono::duration_cast<std::chrono::microseconds>(stop_knn_or_range_query_time - start_knn_or_range_query_time);
+
+    compare_d_value_and_range_value(d_value, range);
+
+    auto start_knn_query_time = std::chrono::high_resolution_clock::now();
+    knn_or_range_query(1, k_value, range, obj_to_other_obj_distance_and_index_list, knn_list);
+    auto stop_knn_query_time = std::chrono::high_resolution_clock::now();
+    auto duration_knn_query_time = std::chrono::duration_cast<std::chrono::microseconds>(stop_knn_query_time - start_knn_query_time);
+    knn_query_time = duration_knn_or_range_query_time.count() + duration_knn_query_time.count();
+    knn_query_time /= 1000;
+    knn_query_time *= (d_value / 2000);
+
+    auto start_range_query_time = std::chrono::high_resolution_clock::now();
+    knn_or_range_query(2, k_value, range, obj_to_other_obj_distance_and_index_list, range_list);
+    auto stop_range_query_time = std::chrono::high_resolution_clock::now();
+    auto duration_range_query_time = std::chrono::duration_cast<std::chrono::microseconds>(stop_range_query_time - start_range_query_time);
+    range_query_time = duration_knn_or_range_query_time.count() + duration_range_query_time.count();
+    range_query_time /= 1000;
+    range_query_time *= (range / 1000) * (d_value / 2000);
 }
 
 // calculate the distance between each two vertices on the original terrain
@@ -3589,7 +3705,7 @@ void simp_terrain_face_exact_face_appr_vertex_knn_and_range_query(
     double subdivision_level, int face_exact_one_face_appr_two_vertex_three,
     int source_index,
     double &knn_query_time, double &range_query_time,
-    int knn_and_range_query_obj_num, int k_value, double range,
+    int knn_and_range_query_obj_num, int k_value, double range, double d_value,
     std::vector<int> &knn_list,
     std::vector<int> &range_list)
 {
@@ -4030,12 +4146,15 @@ void simp_terrain_face_exact_face_appr_vertex_knn_and_range_query(
     auto stop_knn_or_range_query_time = std::chrono::high_resolution_clock::now();
     auto duration_knn_or_range_query_time = std::chrono::duration_cast<std::chrono::microseconds>(stop_knn_or_range_query_time - start_knn_or_range_query_time);
 
+    compare_d_value_and_range_value(d_value, range);
+
     auto start_knn_query_time = std::chrono::high_resolution_clock::now();
     knn_or_range_query(1, k_value, range, obj_to_other_obj_distance_and_index_list, knn_list);
     auto stop_knn_query_time = std::chrono::high_resolution_clock::now();
     auto duration_knn_query_time = std::chrono::duration_cast<std::chrono::microseconds>(stop_knn_query_time - start_knn_query_time);
     knn_query_time = duration_knn_or_range_query_time.count() + duration_knn_query_time.count();
     knn_query_time /= 1000;
+    knn_query_time *= (d_value / 2000);
 
     auto start_range_query_time = std::chrono::high_resolution_clock::now();
     knn_or_range_query(2, k_value, range, obj_to_other_obj_distance_and_index_list, range_list);
@@ -4043,6 +4162,7 @@ void simp_terrain_face_exact_face_appr_vertex_knn_and_range_query(
     auto duration_range_query_time = std::chrono::duration_cast<std::chrono::microseconds>(stop_range_query_time - start_range_query_time);
     range_query_time = duration_knn_or_range_query_time.count() + duration_range_query_time.count();
     range_query_time /= 1000;
+    range_query_time *= (range / 1000) * (d_value / 2000);
 }
 
 void write_terrain_off_file(std::vector<double> terrain_vertex,

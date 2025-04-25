@@ -27,47 +27,54 @@ int main(int argc, char *argv[])
     std::string input_folder = "../input/";
 
     std::vector<input_struct> input_file;
-    input_file.push_back(input_struct("BH_1014", 0, 1013));
-    input_file.push_back(input_struct("BH_10086", 0, 10085));
-    input_file.push_back(input_struct("EP_10062", 0, 10061));
-    input_file.push_back(input_struct("EP_20130", 0, 20129));
-    input_file.push_back(input_struct("EP_30098", 0, 30097));
-    input_file.push_back(input_struct("EP_40076", 0, 40075));
-    input_file.push_back(input_struct("EP_50373", 0, 50372));
-    input_file.push_back(input_struct("GF_10092", 0, 10091));
-    input_file.push_back(input_struct("LM_10092", 0, 10091));
-    input_file.push_back(input_struct("RM_10092", 0, 10091));
-    input_file.push_back(input_struct("BH_500835", 0, 500834));
-    input_file.push_back(input_struct("BH_1000414", 0, 1000413));
-    input_file.push_back(input_struct("BH_1500996", 0, 1500995));
-    input_file.push_back(input_struct("BH_2001610", 0, 2001609));
-    input_file.push_back(input_struct("BH_2502596", 0, 2502595));
-    input_file.push_back(input_struct("EP_500384", 0, 500383));
-    input_file.push_back(input_struct("EP_1001040", 0, 1001039));
-    input_file.push_back(input_struct("EP_1501578", 0, 1501577));
-    input_file.push_back(input_struct("EP_2001536", 0, 2001535));
-    input_file.push_back(input_struct("EP_2500560", 0, 2500559));
-    input_file.push_back(input_struct("GF_500208", 0, 50027));
-    input_file.push_back(input_struct("GF_1000518", 0, 1000517));
-    input_file.push_back(input_struct("GF_1501668", 0, 1501667));
-    input_file.push_back(input_struct("GF_2000832", 0, 2000831));
-    input_file.push_back(input_struct("GF_2502075", 0, 2502074));
-    input_file.push_back(input_struct("LM_500208", 0, 50027));
-    input_file.push_back(input_struct("LM_1000518", 0, 1000517));
-    input_file.push_back(input_struct("LM_1501668", 0, 1501667));
-    input_file.push_back(input_struct("LM_2000832", 0, 2000831));
-    input_file.push_back(input_struct("LM_2502075", 0, 2502074));
-    input_file.push_back(input_struct("RM_500208", 0, 50027));
-    input_file.push_back(input_struct("RM_1000518", 0, 1000517));
-    input_file.push_back(input_struct("RM_1501668", 0, 1501667));
-    input_file.push_back(input_struct("RM_2000832", 0, 2000831));
-    input_file.push_back(input_struct("RM_2502075", 0, 2502074));
+    input_file.push_back(input_struct("BH_1024", 0, 1023));
+    input_file.push_back(input_struct("EP_1024", 0, 1023));
+    input_file.push_back(input_struct("EP_10000", 0, 9999));
+    input_file.push_back(input_struct("EP_20164", 0, 20163));
+    input_file.push_back(input_struct("EP_30276", 0, 30275));
+    input_file.push_back(input_struct("EP_40000", 0, 39999));
+    input_file.push_back(input_struct("EP_50176", 0, 50175));
+    input_file.push_back(input_struct("GF_1024", 0, 1023));
+    input_file.push_back(input_struct("LM_1024", 0, 1023));
+    input_file.push_back(input_struct("RM_1024", 0, 1023));
+    input_file.push_back(input_struct("BH_501264", 0, 501263));
+    input_file.push_back(input_struct("BH_5004169", 0, 5004168));
+    input_file.push_back(input_struct("BH_10004569", 0, 10004568));
+    input_file.push_back(input_struct("BH_15000129", 0, 15000128));
+    input_file.push_back(input_struct("BH_20007729", 0, 20007728));
+    input_file.push_back(input_struct("BH_25000000", 0, 24999999));
+    input_file.push_back(input_struct("EP_501264", 0, 501263));
+    input_file.push_back(input_struct("EP_5004169", 0, 5004168));
+    input_file.push_back(input_struct("EP_10004569", 0, 10004568));
+    input_file.push_back(input_struct("EP_15000129", 0, 15000128));
+    input_file.push_back(input_struct("EP_20007729", 0, 20007728));
+    input_file.push_back(input_struct("EP_25000000", 0, 24999999));
+    input_file.push_back(input_struct("GF_501264", 0, 501263));
+    input_file.push_back(input_struct("GF_5004169", 0, 5004168));
+    input_file.push_back(input_struct("GF_10004569", 0, 10004568));
+    input_file.push_back(input_struct("GF_15000129", 0, 15000128));
+    input_file.push_back(input_struct("GF_20007729", 0, 20007728));
+    input_file.push_back(input_struct("GF_25000000", 0, 24999999));
+    input_file.push_back(input_struct("LM_501264", 0, 501263));
+    input_file.push_back(input_struct("LM_5004169", 0, 5004168));
+    input_file.push_back(input_struct("LM_10004569", 0, 10004568));
+    input_file.push_back(input_struct("LM_15000129", 0, 15000128));
+    input_file.push_back(input_struct("LM_20007729", 0, 20007728));
+    input_file.push_back(input_struct("LM_25000000", 0, 24999999));
+    input_file.push_back(input_struct("RM_501264", 0, 501263));
+    input_file.push_back(input_struct("RM_5004169", 0, 5004168));
+    input_file.push_back(input_struct("RM_10004569", 0, 10004568));
+    input_file.push_back(input_struct("RM_15000129", 0, 15000128));
+    input_file.push_back(input_struct("RM_20007729", 0, 20007728));
+    input_file.push_back(input_struct("RM_25000000", 0, 24999999));
 
     std::vector<std::string> input_height_map_file;
 
-    int knn_and_range_query_obj_num = 1000;
+    int knn_and_range_query_obj_num = 500;
     int k_value = 5;
     double range = 1000;
+    double d_value = 2000;
+    double epsilon_prime_ds = 0.1;
     bool run_knn_and_range_query = false;
     if (run_knn_and_range_query_index == 1)
     {
@@ -111,7 +118,7 @@ int main(int argc, char *argv[])
 
     std::string output_file = "../output/output.txt";
     std::ofstream ofs(output_file, std::ofstream::app);
-    ofs << "# dataset\tdataset_size\tepsilon\theight_map_to_point_cloud_or_terrain_time\theight_map_to_point_cloud_or_terrain_memory_usage\tpreprocessing_time\tmemory_usage\toutput_size\tquery_time\tdistance_error_height_map_or_point_cloud\tdistance_error_terrain\tknn_query_time\tknn_error_height_map_or_point_cloud\tknn_error_terrain\trange_query_time\trange_error_height_map_or_point_cloud\trange_error_terrain\n\n";
+    ofs << "# dataset\tdataset_size\tepsilon\theight_map_to_point_cloud_or_terrain_time\theight_map_to_point_cloud_or_terrain_memory_usage\tpreprocessing_time\tmemory_usage\toutput_size\tnum_of_cell_point_vertex\tquery_time\tdistance_error_height_map_or_point_cloud\tdistance_error_terrain\tknn_query_time\tknn_error_height_map_or_point_cloud\tknn_error_terrain\trange_query_time\trange_error_height_map_or_point_cloud\trange_error_terrain\n\n";
     ofs.close();
 
     double height_map_or_point_cloud_exact_distance = 0;
@@ -150,7 +157,7 @@ int main(int argc, char *argv[])
                 output_file, &org_height_map, epsilon, source_index, destination_index,
                 1, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                 run_knn_and_range_query, knn_and_range_query_obj_num,
-                k_value, range,
+                k_value, range, d_value,
                 height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                 height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                 write_file_header, 1);
@@ -161,29 +168,51 @@ int main(int argc, char *argv[])
                 output_file, &org_height_map, epsilon, source_index, destination_index,
                 3, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                 run_knn_and_range_query, knn_and_range_query_obj_num,
-                k_value, range,
+                k_value, range, d_value,
                 height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                 height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                 write_file_header, 1);
             std::cout << std::endl;
 
+            std::cout << "== PC_Simplify_Adapt(HM) and PC_SP_Adapt(HM) on the simplified point cloud ==" << std::endl;
+            simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
+                                                             destination_index, 6,
+                                                             height_map_or_point_cloud_exact_distance, terrain_exact_distance,
+                                                             run_knn_and_range_query, knn_and_range_query_obj_num,
+                                                             k_value, range, d_value,
+                                                             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
+                                                             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
+                                                             write_file_header, 1);
+            std::cout << std::endl;
+
             std::cout << "== HM_Simplify_LS and HM_SP_LS on the simplified height map ==" << std::endl;
-            simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
+            simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
                                                              destination_index, 4,
                                                              height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                                              run_knn_and_range_query, knn_and_range_query_obj_num,
-                                                             k_value, range,
+                                                             k_value, range, d_value,
                                                              height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                                                              height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                                                              write_file_header, 1);
             std::cout << std::endl;
 
             std::cout << "== HM_Simplify_LST and HM_SP_LST on the simplified height map ==" << std::endl;
-            simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
+            simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
                                                              destination_index, 5,
                                                              height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                                              run_knn_and_range_query, knn_and_range_query_obj_num,
-                                                             k_value, range,
+                                                             k_value, range, d_value,
+                                                             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
+                                                             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
+                                                             write_file_header, 1);
+            std::cout << std::endl;
+
+            std::cout << "== HM_Simplify_DS and HM_SP_DS on the simplified height map ==" << std::endl;
+            simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
+                                                             destination_index, 6,
+                                                             height_map_or_point_cloud_exact_distance, terrain_exact_distance,
+                                                             run_knn_and_range_query, knn_and_range_query_obj_num,
+                                                             k_value, range, d_value,
                                                              height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                                                              height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                                                              write_file_header, 1);
@@ -194,7 +223,7 @@ int main(int argc, char *argv[])
                 output_file, &org_height_map, epsilon, source_index, destination_index,
                 1, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                 run_knn_and_range_query, knn_and_range_query_obj_num,
-                k_value, range,
+                k_value, range, d_value,
                 height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                 height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                 write_file_header, 2);
@@ -205,10 +234,21 @@ int main(int argc, char *argv[])
                 output_file, &org_height_map, epsilon, source_index, destination_index,
                 3, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                 run_knn_and_range_query, knn_and_range_query_obj_num,
-                k_value, range,
+                k_value, range, d_value,
                 height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                 height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                 write_file_header, 2);
+            std::cout << std::endl;
+
+            std::cout << "== PC_Simplify and PC_SP on the simplified point cloud ==" << std::endl;
+            simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
+                                                             destination_index, 6,
+                                                             height_map_or_point_cloud_exact_distance, terrain_exact_distance,
+                                                             run_knn_and_range_query, knn_and_range_query_obj_num,
+                                                             k_value, range, d_value,
+                                                             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
+                                                             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
+                                                             write_file_header, 2);
             std::cout << std::endl;
 
             std::cout << "== TIN_SSimplify and TIN_ESSP on the simplified TIN ==" << std::endl;
@@ -216,7 +256,7 @@ int main(int argc, char *argv[])
                 output_file, &org_height_map, epsilon, source_index, destination_index,
                 1, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                 run_knn_and_range_query, knn_and_range_query_obj_num,
-                k_value, range,
+                k_value, range, d_value,
                 height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                 height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                 write_file_header, 3);
@@ -227,41 +267,52 @@ int main(int argc, char *argv[])
                 output_file, &org_height_map, epsilon, source_index, destination_index,
                 3, height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                 run_knn_and_range_query, knn_and_range_query_obj_num,
-                k_value, range,
+                k_value, range, d_value,
                 height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                 height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                 write_file_header, 3);
             std::cout << std::endl;
+
+            std::cout << "== PC_Simplify_Adapt(TIN) and PC_SP_Adapt(TIN) on the simplified point cloud ==" << std::endl;
+            simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
+                                                             destination_index, 6,
+                                                             height_map_or_point_cloud_exact_distance, terrain_exact_distance,
+                                                             run_knn_and_range_query, knn_and_range_query_obj_num,
+                                                             k_value, range, d_value,
+                                                             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
+                                                             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
+                                                             write_file_header, 3);
+            std::cout << std::endl;
         }
 
         std::cout << "== HM_Simplify and HM_SP on the simplified height map ==" << std::endl;
-        simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
+        simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
                                                          destination_index, 1,
                                                          height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                                          run_knn_and_range_query, knn_and_range_query_obj_num,
-                                                         k_value, range,
+                                                         k_value, range, d_value,
                                                          height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                                                          height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                                                          write_file_header, 1);
         std::cout << std::endl;
 
         std::cout << "== HM_Simplify_LQT1 and HM_SP_LQT1 on the simplified height map ==" << std::endl;
-        simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
+        simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
                                                          destination_index, 2,
                                                          height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                                          run_knn_and_range_query, knn_and_range_query_obj_num,
-                                                         k_value, range,
+                                                         k_value, range, d_value,
                                                          height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                                                          height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                                                          write_file_header, 1);
         std::cout << std::endl;
 
         std::cout << "== HM_Simplify_LQT2 and HM_SP_LQT2 on the simplified height map ==" << std::endl;
-        simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
+        simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
                                                          destination_index, 3,
                                                          height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                                          run_knn_and_range_query, knn_and_range_query_obj_num,
-                                                         k_value, range,
+                                                         k_value, range, d_value,
                                                          height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                                                          height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                                                          write_file_header, 1);
@@ -272,28 +323,18 @@ int main(int argc, char *argv[])
             output_file, &org_height_map, epsilon, source_index,
             destination_index, 2, height_map_or_point_cloud_exact_distance,
             terrain_exact_distance, run_knn_and_range_query,
-            knn_and_range_query_obj_num, k_value, range,
+            knn_and_range_query_obj_num, k_value, range, d_value,
             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
             write_file_header, 1);
         std::cout << std::endl;
 
-        std::cout << "== PC_SP_Adapt(HM) ==" << std::endl;
-        height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
-                                              height_map_or_point_cloud_exact_distance, terrain_exact_distance,
-                                              run_knn_and_range_query, knn_and_range_query_obj_num,
-                                              k_value, range,
-                                              height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
-                                              height_map_or_point_cloud_exact_range_list, terrain_exact_range_list, 2,
-                                              write_file_header, 1);
-        std::cout << std::endl;
-
         std::cout << "== HM_Simplify_Adapt(PC) and HM_SP_Adapt(PC) on the simplified height map ==" << std::endl;
-        simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
+        simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
                                                          destination_index, 1,
                                                          height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                                          run_knn_and_range_query, knn_and_range_query_obj_num,
-                                                         k_value, range,
+                                                         k_value, range, d_value,
                                                          height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                                                          height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                                                          write_file_header, 2);
@@ -304,28 +345,18 @@ int main(int argc, char *argv[])
             output_file, &org_height_map, epsilon, source_index,
             destination_index, 2, height_map_or_point_cloud_exact_distance,
             terrain_exact_distance, run_knn_and_range_query,
-            knn_and_range_query_obj_num, k_value, range,
+            knn_and_range_query_obj_num, k_value, range, d_value,
             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
             write_file_header, 2);
         std::cout << std::endl;
 
-        std::cout << "== PC_SP ==" << std::endl;
-        height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
-                                              height_map_or_point_cloud_exact_distance, terrain_exact_distance,
-                                              run_knn_and_range_query, knn_and_range_query_obj_num,
-                                              k_value, range,
-                                              height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
-                                              height_map_or_point_cloud_exact_range_list, terrain_exact_range_list, 2,
-                                              write_file_header, 2);
-        std::cout << std::endl;
-
         std::cout << "== HM_Simplify_Adapt(TIN) and HM_SP_Adapt(TIN) on the simplified height map ==" << std::endl;
-        simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, source_index,
+        simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
                                                          destination_index, 1,
                                                          height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                                          run_knn_and_range_query, knn_and_range_query_obj_num,
-                                                         k_value, range,
+                                                         k_value, range, d_value,
                                                          height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                                                          height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
                                                          write_file_header, 3);
@@ -336,20 +367,10 @@ int main(int argc, char *argv[])
             output_file, &org_height_map, epsilon, source_index,
             destination_index, 2, height_map_or_point_cloud_exact_distance,
             terrain_exact_distance, run_knn_and_range_query,
-            knn_and_range_query_obj_num, k_value, range,
+            knn_and_range_query_obj_num, k_value, range, d_value,
             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
             write_file_header, 3);
-        std::cout << std::endl;
-
-        std::cout << "== PC_SP_Adapt(TIN) ==" << std::endl;
-        height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
-                                              height_map_or_point_cloud_exact_distance, terrain_exact_distance,
-                                              run_knn_and_range_query, knn_and_range_query_obj_num,
-                                              k_value, range,
-                                              height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
-                                              height_map_or_point_cloud_exact_range_list, terrain_exact_range_list, 2,
-                                              write_file_header, 3);
         std::cout << std::endl;
     }
     else if (epsilon == 0)
@@ -359,7 +380,7 @@ int main(int argc, char *argv[])
             output_file, &org_height_map, epsilon, source_index,
             destination_index, 1, height_map_or_point_cloud_exact_distance,
             terrain_exact_distance, run_knn_and_range_query,
-            knn_and_range_query_obj_num, k_value, range,
+            knn_and_range_query_obj_num, k_value, range, d_value,
             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
             write_file_header, 1);
@@ -370,17 +391,27 @@ int main(int argc, char *argv[])
             output_file, &org_height_map, epsilon, source_index,
             destination_index, 3, height_map_or_point_cloud_exact_distance,
             terrain_exact_distance, run_knn_and_range_query,
-            knn_and_range_query_obj_num, k_value, range,
+            knn_and_range_query_obj_num, k_value, range, d_value,
             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
             write_file_header, 1);
+        std::cout << std::endl;
+
+        std::cout << "== PC_SP_Adapt(HM) on the original height map ==" << std::endl;
+        height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
+                                              height_map_or_point_cloud_exact_distance, terrain_exact_distance,
+                                              run_knn_and_range_query, knn_and_range_query_obj_num,
+                                              k_value, range, d_value,
+                                              height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
+                                              height_map_or_point_cloud_exact_range_list, terrain_exact_range_list, 2,
+                                              write_file_header, 1);
         std::cout << std::endl;
 
         std::cout << "== HM_SP on the original height map ==" << std::endl;
         height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
                                               height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                               run_knn_and_range_query, knn_and_range_query_obj_num,
-                                              k_value, range,
+                                              k_value, range, d_value,
                                               height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                                               height_map_or_point_cloud_exact_range_list, terrain_exact_range_list, 1,
                                               write_file_header, 1);
@@ -391,7 +422,7 @@ int main(int argc, char *argv[])
             output_file, &org_height_map, epsilon, source_index,
             destination_index, 1, height_map_or_point_cloud_exact_distance,
             terrain_exact_distance, run_knn_and_range_query,
-            knn_and_range_query_obj_num, k_value, range,
+            knn_and_range_query_obj_num, k_value, range, d_value,
             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
             write_file_header, 2);
@@ -402,17 +433,27 @@ int main(int argc, char *argv[])
             output_file, &org_height_map, epsilon, source_index,
             destination_index, 3, height_map_or_point_cloud_exact_distance,
             terrain_exact_distance, run_knn_and_range_query,
-            knn_and_range_query_obj_num, k_value, range,
+            knn_and_range_query_obj_num, k_value, range, d_value,
             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
             write_file_header, 2);
+        std::cout << std::endl;
+
+        std::cout << "== PC_SP on the original point cloud ==" << std::endl;
+        height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
+                                              height_map_or_point_cloud_exact_distance, terrain_exact_distance,
+                                              run_knn_and_range_query, knn_and_range_query_obj_num,
+                                              k_value, range, d_value,
+                                              height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
+                                              height_map_or_point_cloud_exact_range_list, terrain_exact_range_list, 2,
+                                              write_file_header, 2);
         std::cout << std::endl;
 
         std::cout << "== HM_SP_Adapt(PC) on the original point cloud ==" << std::endl;
         height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
                                               height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                               run_knn_and_range_query, knn_and_range_query_obj_num,
-                                              k_value, range,
+                                              k_value, range, d_value,
                                               height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                                               height_map_or_point_cloud_exact_range_list, terrain_exact_range_list, 1,
                                               write_file_header, 2);
@@ -423,7 +464,7 @@ int main(int argc, char *argv[])
             output_file, &org_height_map, epsilon, source_index,
             destination_index, 1, height_map_or_point_cloud_exact_distance,
             terrain_exact_distance, run_knn_and_range_query,
-            knn_and_range_query_obj_num, k_value, range,
+            knn_and_range_query_obj_num, k_value, range, d_value,
             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
             write_file_header, 3);
@@ -434,17 +475,27 @@ int main(int argc, char *argv[])
             output_file, &org_height_map, epsilon, source_index,
             destination_index, 3, height_map_or_point_cloud_exact_distance,
             terrain_exact_distance, run_knn_and_range_query,
-            knn_and_range_query_obj_num, k_value, range,
+            knn_and_range_query_obj_num, k_value, range, d_value,
             height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
             height_map_or_point_cloud_exact_range_list, terrain_exact_range_list,
             write_file_header, 3);
+        std::cout << std::endl;
+
+        std::cout << "== PC_SP_Adapt(TIN) on the original TIN ==" << std::endl;
+        height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
+                                              height_map_or_point_cloud_exact_distance, terrain_exact_distance,
+                                              run_knn_and_range_query, knn_and_range_query_obj_num,
+                                              k_value, range, d_value,
+                                              height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
+                                              height_map_or_point_cloud_exact_range_list, terrain_exact_range_list, 2,
+                                              write_file_header, 3);
         std::cout << std::endl;
 
         std::cout << "== HM_SP_Adapt(TIN) on the original TIN ==" << std::endl;
         height_map_or_point_cloud_with_output(output_file, &org_height_map, source_index, destination_index,
                                               height_map_or_point_cloud_exact_distance, terrain_exact_distance,
                                               run_knn_and_range_query, knn_and_range_query_obj_num,
-                                              k_value, range,
+                                              k_value, range, d_value,
                                               height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
                                               height_map_or_point_cloud_exact_range_list, terrain_exact_range_list, 1,
                                               write_file_header, 3);
