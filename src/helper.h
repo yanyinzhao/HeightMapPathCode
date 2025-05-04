@@ -1670,7 +1670,7 @@ void simp_height_map_query(
     int source_index, int destination_index,
     double &query_time, double &query_memory_usage, double &distance_result,
     std::vector<height_map_geodesic::PathPoint> &path_result,
-    int org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven)
+    int org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven)
 {
     auto start_query_time = std::chrono::high_resolution_clock::now();
 
@@ -1695,7 +1695,7 @@ void simp_height_map_query(
         height_map_geodesic::PathPoint destination(&new_height_map->hm_points()[destination_index]);
         std::vector<height_map_geodesic::PathPoint> one_source_list(1, source);
         std::vector<height_map_geodesic::PathPoint> one_destination_list(1, destination);
-        for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 1); k++)
+        for (int k = 0; k < iternation_num(org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven, 1); k++)
         {
             post_algorithm.propagate(one_source_list, &one_destination_list);
         }
@@ -1718,7 +1718,7 @@ void simp_height_map_query(
         {
             destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite.first]));
         }
-        for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 1); k++)
+        for (int k = 0; k < iternation_num(org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven, 1); k++)
         {
             post_algorithm.propagate(one_source_list, &destinations_list);
         }
@@ -1794,7 +1794,7 @@ void simp_height_map_query(
         {
             destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite.first]));
         }
-        for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 1); k++)
+        for (int k = 0; k < iternation_num(org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven, 1); k++)
         {
             post_algorithm.propagate(one_source_list, &destinations_list);
         }
@@ -1971,7 +1971,7 @@ void simp_height_map_query(
                 {
                     destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite2.first]));
                 }
-                for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 1); k++)
+                for (int k = 0; k < iternation_num(org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven, 1); k++)
                 {
                     post_algorithm.propagate(one_source_list, &destinations_list);
                 }
@@ -2091,7 +2091,7 @@ void simp_height_map_knn_and_range_query(
     int knn_and_range_query_obj_num, int k_value, double range, double d_value,
     std::vector<int> &knn_list,
     std::vector<int> &range_list,
-    int org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven)
+    int org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven)
 {
     auto start_knn_or_range_query_time = std::chrono::high_resolution_clock::now();
 
@@ -2136,7 +2136,7 @@ void simp_height_map_knn_and_range_query(
             height_map_geodesic::PathPoint destination(&new_height_map->hm_points()[destination_index]);
             std::vector<height_map_geodesic::PathPoint> one_source_list(1, source);
             std::vector<height_map_geodesic::PathPoint> one_destination_list(1, destination);
-            for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 2); k++)
+            for (int k = 0; k < iternation_num(org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven, 2); k++)
             {
                 post_algorithm.propagate(one_source_list, &one_destination_list);
             }
@@ -2159,7 +2159,7 @@ void simp_height_map_knn_and_range_query(
             {
                 destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite.first]));
             }
-            for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 2); k++)
+            for (int k = 0; k < iternation_num(org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven, 2); k++)
             {
                 post_algorithm.propagate(one_source_list, &destinations_list);
             }
@@ -2235,7 +2235,7 @@ void simp_height_map_knn_and_range_query(
             {
                 destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite.first]));
             }
-            for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 2); k++)
+            for (int k = 0; k < iternation_num(org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven, 2); k++)
             {
                 post_algorithm.propagate(one_source_list, &destinations_list);
             }
@@ -2412,7 +2412,7 @@ void simp_height_map_knn_and_range_query(
                     {
                         destinations_list.push_back(height_map_geodesic::PathPoint(&new_height_map->hm_points()[ite2.first]));
                     }
-                    for (int k = 0; k < iternation_num(org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, 2); k++)
+                    for (int k = 0; k < iternation_num(org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven, 2); k++)
                     {
                         post_algorithm.propagate(one_source_list, &destinations_list);
                     }

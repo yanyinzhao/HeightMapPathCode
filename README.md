@@ -15,10 +15,10 @@ We compared 37 algorithms as follows (the algorithms calculate the path passing 
 - PC-Simplify-Adapt(HM) (baseline simplification algorithm)
 - PC-Simplify (baseline simplification algorithm that calculates the path passing on a point cloud)
 - PC-Simplify-Adapt(TIN) (baseline simplification algorithm that calculates the path passing on a TIN)
-- HM-Simplify-LS (variation of our simplification algorithm)
-- HM-Simplify-LST (variation of our simplification algorithm)
-- HM-Simplify-LQT1 (variation of our simplification algorithm)
-- HM-Simplify-LQT2 (variation of our simplification algorithm)
+- HM-Simplify-NM (variation of our simplification algorithm)
+- HM-Simplify-NC (variation of our simplification algorithm)
+- HM-Simplify-NS (variation of our simplification algorithm)
+- HM-Simplify-NP (variation of our simplification algorithm)
 - HM-Simplify-DS (variation of our simplification algorithm)
 - HM-Simplify (our simplification algorithm)
 - HM-Simplify-Adapt(PC) (our simplification algorithm that calculate the path passing on a point cloud)
@@ -38,10 +38,10 @@ We compared 37 algorithms as follows (the algorithms calculate the path passing 
 - HM-SP (our shortest path query algorithm)
 - HM-SP-Adapt(PC) (our shortest path query algorithm that calculate the path passing on a point cloud)
 - HM-SP-Adapt(TIN) (our shortest path query algorithm that calculate the path passing on a TIN)
-- HM-SP-LS (variation of our shortest path query algorithm)
-- HM-SP-LST (variation of our shortest path query algorithm)
-- HM-SP-LQT1 (variation of our shortest path query algorithm)
-- HM-SP-LQT2 (variation of our shortest path query algorithm)
+- HM-SP-NM (variation of our shortest path query algorithm)
+- HM-SP-NC (variation of our shortest path query algorithm)
+- HM-SP-NS (variation of our shortest path query algorithm)
+- HM-SP-NP (variation of our shortest path query algorithm)
 - HM-SP-DS (variation of our shortest path query algorithm)
 
 Make sure there is a folder called "input/" and a folder called "output/" under the working directory. They will be used for storing the input/output files.
@@ -209,7 +209,7 @@ last_face_1st_vertex_ID last_face_2nd_vertex_ID last_face_3td_vertex_ID
 
 For TIN-ESSP-Adapt(HM), TIN-ESSP-Adapt(PC), TIN-ESSP, TIN-SNP-Adapt(HM), TIN-SNP-Adapt(PC), TIN-SNP, PC-SP-Adapt(HM), PC-SP, PC-SP-Adapt(TIN), HM-SP, HM-SP-Adapt(PC) and HM-SP-Adapt(TIN), we distinguish the case that when epsilon=0 (resp. epsilon>0), we use them on the original (resp. simplified) TINs, point clouds or height maps.
 
-Since TIN-SSimplify-Adapt(HM), TIN-SSimplify-Adapt(PC), TIN-SSimplify, TIN-NSimplify-Adapt(HM), TIN-NSimplify-Adapt(PC), TIN-NSimplify, PC-Simplify-Adapt(HM), PC-Simplify, PC-Simplify-Adapt(TIN), HM-Simplify-LS, and HM-Simplify-LST are time consuming or having large memory usage, and TIN-ESSP-Adapt(HM) on the simplified TIN, TIN-ESSP-Adapt(PC) on the simplified TIN, TIN-ESSP on the simplified TIN, TIN-SNP-Adapt(HM) on the simplified TIN, TIN-SNP-Adapt(PC) on the simplified TIN, TIN-SNP on the simplified TIN, PC-SP-Adapt(HM) on the simplified point cloud, PC-SP on the simplified point cloud, PC-SP-Adapt(TIN) on the simplified point cloud, HM-SP-LS on the simplified height map, and HM-SP-LST on the simplified height map depends on these algorithms, the project will run all algorithms on small-version dataset ([data_and_index] <= 9). The project will run all algorithms except these mentioned algorithms on original dataset ([data_and_index] > 9).
+Since TIN-SSimplify-Adapt(HM), TIN-SSimplify-Adapt(PC), TIN-SSimplify, TIN-NSimplify-Adapt(HM), TIN-NSimplify-Adapt(PC), TIN-NSimplify, PC-Simplify-Adapt(HM), PC-Simplify, PC-Simplify-Adapt(TIN), HM-Simplify-NM, and HM-Simplify-NC are time consuming or having large memory usage, and TIN-ESSP-Adapt(HM) on the simplified TIN, TIN-ESSP-Adapt(PC) on the simplified TIN, TIN-ESSP on the simplified TIN, TIN-SNP-Adapt(HM) on the simplified TIN, TIN-SNP-Adapt(PC) on the simplified TIN, TIN-SNP on the simplified TIN, PC-SP-Adapt(HM) on the simplified point cloud, PC-SP on the simplified point cloud, PC-SP-Adapt(TIN) on the simplified point cloud, HM-SP-NM on the simplified height map, and HM-SP-NC on the simplified height map depends on these algorithms, the project will run all algorithms on small-version dataset ([data_and_index] <= 9). The project will run all algorithms except these mentioned algorithms on original dataset ([data_and_index] > 9).
 
 In addition, we strongly encourage you to set [run_knn_and_range_query] to 0 if you are not conducting experiments. Otherwise, it will take a very long time to calculate them. 
 
@@ -234,7 +234,7 @@ In this example, [data_and_index] is 0, [epsilon] is 0, [run_knn_and_range_query
 The output will be stored in "output/output.txt" file. The format will be as follows:
 
 ```
-[dataset] [dataset_size] [epsilon] [height_map_to_point_cloud_or_terrain_time (ms)] [height_map_to_point_cloud_or_terrain_memory_usage (MB)] [preprocessing_time (ms)] [memory_usage (MB)] [output_size (MB)] [num_of_cell_point_vertex] [query_time (ms)] [distance_error_height_map_or_point_cloud] [distance_error_terrain] [knn_query_time] [knn_error_height_map_or_point_cloud] [knn_error_terrain] [range_query_time] [range_error_height_map_or_point_cloud] [range_error_terrain]
+[dataset] [dataset_size] [epsilon] [height_map_to_point_cloud_or_terrain_time (ms)] [height_map_to_point_cloud_or_terrain_memory_usage (MB)] [preprocessing_time (ms)] [preprocessing_memory_usage (MB)] [output_size (MB)] [num_of_cell_point_vertex] [query_time (ms)] [query_memory_usage (MB)] [distance_error_height_map_or_point_cloud] [distance_error_terrain] [knn_query_time] [knn_query_memory_usage (MB)] [knn_error_height_map_or_point_cloud] [knn_error_terrain] [range_query_time] [range_query_memory_usage (MB)] [range_error_height_map_or_point_cloud] [range_error_terrain]
 ```
 
 These information will also be shown in the terminal. 

@@ -157,7 +157,7 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
                                           int &num_of_cell_point_vertex,
                                           double &query_time, double &query_memory_usage, double &distance_result,
                                           std::vector<height_map_geodesic::PathPoint> &path_result,
-                                          int org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven,
+                                          int org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven,
                                           bool run_knn_and_range_query,
                                           double &knn_query_time, double &range_query_time,
                                           int knn_and_range_query_obj_num,
@@ -186,8 +186,8 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
     // calculate the distance between each two point on the original height map for naive algorithm
     std::unordered_map<int, double> all_dist_p_to_p_org_height_map;
     all_dist_p_to_p_org_height_map.clear();
-    if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 5 ||
-        org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 7)
+    if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 5 ||
+        org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 7)
     {
         height_map_cal_org_dist_p_to_p(org_height_map, all_dist_p_to_p_org_height_map);
     }
@@ -252,8 +252,8 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
         // check whether satisfy distance requirement
         bool merge_four_point_distance_satisfy = true;
         bool merge_four_point_distance_satisfy_naive = true;
-        if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 4 ||
-            org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 7)
+        if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 4 ||
+            org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 7)
         {
             epsilon /= 2;
         }
@@ -261,8 +261,8 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
             org_height_map, &new_height_map, epsilon,
             merge_four_point_distance_satisfy, added_center_point_index,
             temp_dominate_table_map, temp_del_p_dom_by_map);
-        if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 5 ||
-            org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 7)
+        if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 5 ||
+            org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 7)
         {
             height_map_cal_simp_dist_and_check_naive(
                 org_height_map, &new_height_map,
@@ -285,9 +285,9 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
             continue;
         }
 
-        if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 1 ||
-            org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 5 ||
-            org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 7)
+        if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 1 ||
+            org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 5 ||
+            org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 7)
         {
             // looping for expanding into four directions
             bool keep_exp_four_direct = true;
@@ -327,8 +327,8 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
                         org_height_map, &new_height_map, epsilon,
                         exp_four_direct_distance_satisfy, added_center_point_index,
                         temp_dominate_table_map, temp_del_p_dom_by_map);
-                    if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 5 ||
-                        org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 7)
+                    if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 5 ||
+                        org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 7)
                     {
                         height_map_cal_simp_dist_and_check_naive(
                             org_height_map, &new_height_map,
@@ -425,8 +425,8 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
                             org_height_map, &new_height_map, epsilon,
                             exp_three_two_one_direct_distance_satisfy, added_center_point_index,
                             temp_dominate_table_map, temp_del_p_dom_by_map);
-                        if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 5 ||
-                            org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 7)
+                        if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 5 ||
+                            org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 7)
                         {
                             height_map_cal_simp_dist_and_check_naive(
                                 org_height_map, &new_height_map,
@@ -466,7 +466,7 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
     std::unordered_map<std::pair<int, int>, double, boost::hash<std::pair<int, int>>> all_dist;
     all_path.clear();
     all_dist.clear();
-    if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 6)
+    if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 6)
     {
         for (int k = 0; k < epsilon_prime_ds_to_iternation_num(epsilon_prime_ds); k++)
         {
@@ -497,12 +497,12 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
     preprocessing_time = duration_preprocessing_time.count();
     preprocessing_time /= 1000;
 
-    if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven != 6)
+    if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven != 6)
     {
         simp_height_map_query(org_height_map, &new_height_map, dominate_table_map,
                               del_p_dom_by_map, source_index, destination_index,
                               query_time, query_memory_usage, distance_result, path_result,
-                              org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven);
+                              org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven);
     }
     else
     {
@@ -513,7 +513,7 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
     preprocessing_memory_usage = org_total_node_size * org_node_size + path_result.size() * sizeof(height_map_geodesic::PathPoint) + sizeof(double) + 4 * del_p_dom_by_map.size() * sizeof(double) + (new_height_map.hm_points().size() - del_p_dom_by_map.size()) * 3 * sizeof(double);
     output_size = (new_height_map.hm_points().size() - del_p_dom_by_map.size()) * 3 * sizeof(double);
     num_of_cell_point_vertex = new_height_map.hm_points().size() - del_p_dom_by_map.size();
-    if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 6)
+    if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 6)
     {
         preprocessing_memory_usage += additional_size;
         output_size += additional_size;
@@ -522,14 +522,14 @@ void simplified_height_map_or_point_cloud(height_map_geodesic::HeightMap *org_he
 
     if (run_knn_and_range_query)
     {
-        if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven != 6)
+        if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven != 6)
         {
             simp_height_map_knn_and_range_query(
                 org_height_map, &new_height_map, dominate_table_map,
                 del_p_dom_by_map, source_index,
                 knn_query_time, range_query_time,
                 knn_and_range_query_obj_num, k_value, range, d_value, knn_list, range_list,
-                org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven);
+                org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven);
         }
         else
         {
@@ -1085,7 +1085,7 @@ void simplified_height_map_or_point_cloud_with_output(
     std::string output_file,
     height_map_geodesic::HeightMap *org_height_map,
     double epsilon, double epsilon_prime_ds, int source_index, int destination_index,
-    int org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven,
+    int org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven,
     double height_map_or_point_cloud_exact_distance,
     double terrain_exact_distance, bool run_knn_and_range_query,
     int knn_and_range_query_obj_num, int k_value, double range, double d_value,
@@ -1119,7 +1119,7 @@ void simplified_height_map_or_point_cloud_with_output(
         org_height_map, epsilon, epsilon_prime_ds, source_index, destination_index,
         preprocessing_time, preprocessing_memory_usage, output_size, num_of_cell_point_vertex,
         query_time, query_memory_usage, distance_result, path_result,
-        org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven, run_knn_and_range_query,
+        org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven, run_knn_and_range_query,
         knn_query_time, range_query_time, knn_and_range_query_obj_num,
         k_value, range, d_value, knn_list, range_list,
         height_map_or_point_cloud_exact_knn_list, terrain_exact_knn_list,
@@ -1128,10 +1128,11 @@ void simplified_height_map_or_point_cloud_with_output(
         height_map_or_point_cloud_range_query_error, terrain_range_query_error);
 
     std::cout << "Preprocessing time: " << preprocessing_time << " ms" << std::endl;
-    std::cout << "Preprocessing memory usage: " << preprocessing_memory_usage / 1e6 << " MB" << std::endl;
+    std::cout << "Preprocessing memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
     std::cout << "Output size: " << output_size / 1e6 << " MB" << std::endl;
     std::cout << "No. of cells, points or vertices: " << num_of_cell_point_vertex << std::endl;
     std::cout << "Query time: " << query_time << " ms" << std::endl;
+    std::cout << "Query memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
     std::cout << "Calculated distance: " << distance_result
               << ", height map or point cloud exact distance: " << height_map_or_point_cloud_exact_distance
               << ", height map or point cloud distance error: " << std::abs(distance_result / height_map_or_point_cloud_exact_distance - 1)
@@ -1140,15 +1141,17 @@ void simplified_height_map_or_point_cloud_with_output(
     if (run_knn_and_range_query)
     {
         std::cout << "Knn query time: " << knn_query_time << " ms" << std::endl;
+        std::cout << "Knn query memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
         std::cout << "Height map or point cloud knn error: " << height_map_or_point_cloud_knn_query_error << ", terrain knn error: " << terrain_knn_query_error << std::endl;
         std::cout << "Range query time: " << range_query_time << " ms" << std::endl;
+        std::cout << "Range query memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
         std::cout << "Height map or point cloud range error: " << height_map_or_point_cloud_range_query_error << ", terrain range error: " << terrain_range_query_error << std::endl;
     }
 
     std::ofstream ofs(output_file, std::ios_base::app);
     if (output_file == "../output/output.txt")
     {
-        if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 1)
+        if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 1)
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
@@ -1163,27 +1166,27 @@ void simplified_height_map_or_point_cloud_with_output(
                 ofs << "\n== HM_Simplify_Adapt(TIN) and HM_SP_Adapt(TIN) on the simplified height map ==\n";
             }
         }
-        else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 2)
+        else if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 2)
         {
-            ofs << "\n== HM_Simplify_LQT1 and HM_SP_LQT1 on the simplified height map ==\n";
+            ofs << "\n== HM_Simplify_NS and HM_SP_NS on the simplified height map ==\n";
         }
-        else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 3)
+        else if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 3)
         {
-            ofs << "\n== HM_Simplify_LQT2 and HM_SP_LQT2 on the simplified height map ==\n";
+            ofs << "\n== HM_Simplify_NP and HM_SP_NP on the simplified height map ==\n";
         }
-        else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 4)
+        else if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 4)
         {
-            ofs << "\n== HM_Simplify_LS and HM_SP_LS on the simplified height map ==\n";
+            ofs << "\n== HM_Simplify_NM and HM_SP_NM on the simplified height map ==\n";
         }
-        else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 5)
+        else if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 5)
         {
-            ofs << "\n== HM_Simplify_LST and HM_SP_LST on the simplified height map ==\n";
+            ofs << "\n== HM_Simplify_NC and HM_SP_NC on the simplified height map ==\n";
         }
-        else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 6)
+        else if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 6)
         {
             ofs << "\n== HM_Simplify_DS and HM_SP_DS on the simplified height map ==\n";
         }
-        else if (org_one_lqt1_two_lqt2_three_ls_four_lst_five_ds_six_point_seven == 7)
+        else if (org_one_ns_two_np_three_nm_four_nc_five_ds_six_point_seven == 7)
         {
             if (height_map_one_point_cloud_two_terrain_three == 1)
             {
@@ -1203,16 +1206,19 @@ void simplified_height_map_or_point_cloud_with_output(
         << 0 << "\t"
         << 0 / 1e6 << "\t"
         << preprocessing_time << "\t"
-        << preprocessing_memory_usage / 1e6 << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << output_size / 1e6 << "\t"
         << num_of_cell_point_vertex << "\t"
         << query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << std::abs(distance_result / height_map_or_point_cloud_exact_distance - 1) << "\t"
         << std::abs(distance_result / terrain_exact_distance - 1) << "\t"
         << knn_query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << height_map_or_point_cloud_knn_query_error << "\t"
         << terrain_knn_query_error << "\t"
         << range_query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << height_map_or_point_cloud_range_query_error << "\t"
         << terrain_range_query_error << "\n";
     ofs.close();
@@ -1276,10 +1282,11 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
         std::cout << "Height map or point cloud to terrain memory usage: " << height_map_or_point_cloud_to_terrain_memory_usage / 1e6 << " MB" << std::endl;
     }
     std::cout << "Preprocessing time: " << preprocessing_time << " ms" << std::endl;
-    std::cout << "Preprocessing memory usage: " << preprocessing_memory_usage / 1e6 << " MB" << std::endl;
+    std::cout << "Preprocessing memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
     std::cout << "Output size: " << output_size / 1e6 << " MB" << std::endl;
     std::cout << "No. of cells, points or vertices: " << num_of_cell_point_vertex << std::endl;
     std::cout << "Query time: " << query_time << " ms" << std::endl;
+    std::cout << "Query memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
     std::cout << "Calculated distance: " << distance_result
               << ", height map or point cloud exact distance: " << height_map_or_point_cloud_exact_distance
               << ", height map or point cloud distance error: " << std::abs(distance_result / height_map_or_point_cloud_exact_distance - 1)
@@ -1288,8 +1295,10 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
     if (run_knn_and_range_query)
     {
         std::cout << "Knn query time: " << knn_query_time << " ms" << std::endl;
+        std::cout << "Knn query memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
         std::cout << "Height map or point cloud knn error: " << height_map_or_point_cloud_knn_query_error << ", terrain knn error: " << terrain_knn_query_error << std::endl;
         std::cout << "Range query time: " << range_query_time << " ms" << std::endl;
+        std::cout << "Range query memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
         std::cout << "Height map or point cloud range error: " << height_map_or_point_cloud_range_query_error << ", terrain range error: " << terrain_range_query_error << std::endl;
     }
 
@@ -1335,16 +1344,19 @@ void simplified_terrain_face_exact_and_face_appr_and_vertex_with_output(
         << height_map_or_point_cloud_to_terrain_time << "\t"
         << height_map_or_point_cloud_to_terrain_memory_usage / 1e6 << "\t"
         << preprocessing_time << "\t"
-        << preprocessing_memory_usage / 1e6 << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << output_size / 1e6 << "\t"
         << num_of_cell_point_vertex << "\t"
         << query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << std::abs(distance_result / height_map_or_point_cloud_exact_distance - 1) << "\t"
         << std::abs(distance_result / terrain_exact_distance - 1) << "\t"
         << knn_query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << height_map_or_point_cloud_knn_query_error << "\t"
         << terrain_knn_query_error << "\t"
         << range_query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << height_map_or_point_cloud_range_query_error << "\t"
         << terrain_range_query_error << "\n";
     ofs.close();
@@ -1407,8 +1419,10 @@ void height_map_or_point_cloud_with_output(
     if (run_knn_and_range_query)
     {
         std::cout << "Knn query time: " << knn_query_time << " ms" << std::endl;
+        std::cout << "Knn query memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
         std::cout << "Height map or point cloud knn error: " << height_map_or_point_cloud_knn_query_error << ", terrain knn error: " << terrain_knn_query_error << std::endl;
         std::cout << "Range query time: " << range_query_time << " ms" << std::endl;
+        std::cout << "Range query memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
         std::cout << "Height map or point cloud range error: " << height_map_or_point_cloud_range_query_error << ", terrain range error: " << terrain_range_query_error << std::endl;
     }
 
@@ -1450,16 +1464,19 @@ void height_map_or_point_cloud_with_output(
         << 0 << "\t"
         << 0 / 1e6 << "\t"
         << 0 << "\t"
-        << query_memory_usage / 1e6 << "\t"
+        << 0 / 1e6 << "\t"
         << 0 / 1e6 << "\t"
         << 0 << "\t"
         << query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << std::abs(distance_result / height_map_or_point_cloud_exact_distance - 1) << "\t"
         << std::abs(distance_result / terrain_exact_distance - 1) << "\t"
         << knn_query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << height_map_or_point_cloud_knn_query_error << "\t"
         << terrain_knn_query_error << "\t"
         << range_query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << height_map_or_point_cloud_range_query_error << "\t"
         << terrain_range_query_error << "\n";
     ofs.close();
@@ -1536,8 +1553,10 @@ void terrain_face_exact_and_face_appr_and_vertex_with_output(
     if (run_knn_and_range_query)
     {
         std::cout << "Knn query time: " << knn_query_time << " ms" << std::endl;
+        std::cout << "Knn query memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
         std::cout << "Height map or point cloud knn error: " << height_map_or_point_cloud_knn_query_error << ", terrain knn error: " << terrain_knn_query_error << std::endl;
         std::cout << "Range query time: " << range_query_time << " ms" << std::endl;
+        std::cout << "Range query memory usage: " << query_memory_usage / 1e6 << " MB" << std::endl;
         std::cout << "Height map or point cloud range error: " << height_map_or_point_cloud_range_query_error << ", terrain range error: " << terrain_range_query_error << std::endl;
     }
 
@@ -1594,16 +1613,19 @@ void terrain_face_exact_and_face_appr_and_vertex_with_output(
         << height_map_or_point_cloud_to_terrain_time << "\t"
         << height_map_or_point_cloud_to_terrain_memory_usage / 1e6 << "\t"
         << 0 << "\t"
-        << query_memory_usage / 1e6 << "\t"
+        << 0 / 1e6 << "\t"
         << 0 / 1e6 << "\t"
         << 0 << "\t"
         << query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << std::abs(distance_result / height_map_or_point_cloud_exact_distance - 1) << "\t"
         << std::abs(distance_result / terrain_exact_distance - 1) << "\t"
         << knn_query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << height_map_or_point_cloud_knn_query_error << "\t"
         << terrain_knn_query_error << "\t"
         << range_query_time << "\t"
+        << query_memory_usage / 1e6 << "\t"
         << height_map_or_point_cloud_range_query_error << "\t"
         << terrain_range_query_error << "\n";
     ofs.close();

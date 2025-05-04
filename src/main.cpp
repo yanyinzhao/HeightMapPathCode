@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 
     std::string output_file = "../output/output.txt";
     std::ofstream ofs(output_file, std::ofstream::app);
-    ofs << "# dataset\tdataset_size\tepsilon\theight_map_to_point_cloud_or_terrain_time\theight_map_to_point_cloud_or_terrain_memory_usage\tpreprocessing_time\tmemory_usage\toutput_size\tnum_of_cell_point_vertex\tquery_time\tdistance_error_height_map_or_point_cloud\tdistance_error_terrain\tknn_query_time\tknn_error_height_map_or_point_cloud\tknn_error_terrain\trange_query_time\trange_error_height_map_or_point_cloud\trange_error_terrain\n\n";
+    ofs << "# dataset\tdataset_size\tepsilon\theight_map_to_point_cloud_or_terrain_time\theight_map_to_point_cloud_or_terrain_memory_usage\tpreprocessing_time\tpreprocessing_memory_usage\toutput_size\tnum_of_cell_point_vertex\tquery_time\tquery_memory_usage\tdistance_error_height_map_or_point_cloud\tdistance_error_terrain\tknn_query_time\tknn_query_memory_usage\tknn_error_height_map_or_point_cloud\tknn_error_terrain\trange_query_time\trange_query_memory_usage\trange_error_height_map_or_point_cloud\trange_error_terrain\n\n";
     ofs.close();
 
     double height_map_or_point_cloud_exact_distance = 0;
@@ -185,7 +185,7 @@ int main(int argc, char *argv[])
                                                              write_file_header, 1);
             std::cout << std::endl;
 
-            std::cout << "== HM_Simplify_LS and HM_SP_LS on the simplified height map ==" << std::endl;
+            std::cout << "== HM_Simplify_NM and HM_SP_NM on the simplified height map ==" << std::endl;
             simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
                                                              destination_index, 4,
                                                              height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -196,7 +196,7 @@ int main(int argc, char *argv[])
                                                              write_file_header, 1);
             std::cout << std::endl;
 
-            std::cout << "== HM_Simplify_LST and HM_SP_LST on the simplified height map ==" << std::endl;
+            std::cout << "== HM_Simplify_NC and HM_SP_NC on the simplified height map ==" << std::endl;
             simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
                                                              destination_index, 5,
                                                              height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -296,7 +296,7 @@ int main(int argc, char *argv[])
                                                          write_file_header, 1);
         std::cout << std::endl;
 
-        std::cout << "== HM_Simplify_LQT1 and HM_SP_LQT1 on the simplified height map ==" << std::endl;
+        std::cout << "== HM_Simplify_NS and HM_SP_NS on the simplified height map ==" << std::endl;
         simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
                                                          destination_index, 2,
                                                          height_map_or_point_cloud_exact_distance, terrain_exact_distance,
@@ -307,7 +307,7 @@ int main(int argc, char *argv[])
                                                          write_file_header, 1);
         std::cout << std::endl;
 
-        std::cout << "== HM_Simplify_LQT2 and HM_SP_LQT2 on the simplified height map ==" << std::endl;
+        std::cout << "== HM_Simplify_NP and HM_SP_NP on the simplified height map ==" << std::endl;
         simplified_height_map_or_point_cloud_with_output(output_file, &org_height_map, epsilon, epsilon_prime_ds, source_index,
                                                          destination_index, 3,
                                                          height_map_or_point_cloud_exact_distance, terrain_exact_distance,
